@@ -1,0 +1,6 @@
+.error-messages {
+    max-height: 3em; /* Ajusta la altura máxima según tus necesidades */
+    overflow-y: auto; /* Permite el desplazamiento vertical si los mensajes exceden la altura */
+    margin-top: 0.5em; /* Ajusta el margen superior según tus necesidades */
+}
+  

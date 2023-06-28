@@ -18,7 +18,7 @@
   
 .carousel-item img {
   opacity: 0.7; /* Ajusta el valor de opacidad según tus preferencias */
-  filter: blur(4px); /* Ajusta el valor de "blur" para cambiar la intensidad del efecto de desenfoque */
+  filter: blur(2px); /* Ajusta el valor de "blur" para cambiar la intensidad del efecto de desenfoque */
 }
 
   
@@ -67,7 +67,7 @@
     }
   }
   
-/*Iconos*/
-i{
-  font-size: 75px;
-}
+  /*Iconos*/
+  i{
+    font-size: 75px;
+  }

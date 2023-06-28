@@ -10,6 +10,8 @@ import { FooterComponent } from './components/footer/footer.component';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EstudiantesComponent } from './components/centro-formacion/estudiantes/estudiantes.component';
+import { DocentesComponent } from './components/centro-formacion/docentes/docentes.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    EstudiantesComponent,
+    DocentesComponent
   ],
   imports: [
     BrowserModule,

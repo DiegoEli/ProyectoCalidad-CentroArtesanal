@@ -45,7 +45,7 @@
                                     Centro de Formación Artesanal UG</p>
                             </div>
                             <div class="col-md-10 mx-auto col-lg-6">
-                                <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" (ngSubmit)="iniciarSesion()">
+                                <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary">
                                     <div class="form-floating mb-3">
                                       <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
                                       <label for="floatingInput">Correo electrónico</label>
@@ -59,9 +59,8 @@
                                             <input type="checkbox" value="remember-me"> Recordarme
                                         </label>
                                     </div>
-                                    <button class="w-100 btn btn-lg btn-primary" type="submit" data-bs-dismiss="modal">Iniciar sesión</button><br><br>
-                                    <button class="w-100 btn btn-lg btn-secondary"
-                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button class="w-100 btn btn-lg btn-primary" type="submit" data-bs-dismiss="modal" (click)="iniciarSesion()">Iniciar sesión</button><br><br>
+                                    <button class="w-100 btn btn-lg btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                                     <hr class="my-4">
                                     <small class="text-body-secondary">Considere que previamente debió ser registrado
                                         por el Centro Artesanal UG.</small>

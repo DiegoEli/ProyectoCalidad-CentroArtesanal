@@ -12,7 +12,8 @@
                 <div>
                     <!--LLAMADA AL MODAL-->
                     <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal"
-                        data-bs-target="#staticBackdrop">Acceder</button>
+                        data-bs-target="#staticBackdrop">Acceder
+                    </button>
                 </div>
             </div>
         </div>
@@ -21,64 +22,60 @@
 
 <div class="container">
     <!--MODAL-->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-        <!--CONTENIDO DEL MODAL-->
-        <div class="modal-content">
-            <!--CABECERA-->
-            <!--<div class="modal-header">-->
-            <!--TITULO-->
-            <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Bienvenido de nuevo!</h1> -->
-            <!--ICONO DE CIERRE DE LA CABERA-->
-            <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
-            <!--</div>-->
-            <!--CUERPO-->
-            <div class="modal-body">
-                <div class="container col-xl-10 px-1 py-5">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Centro de Formación Artesanal UG</h1>
-                            <p class="col-lg-10 fs-4">Ingrese las credenciales de acceso proporcionadas por el Centro de Formación Artesanal UG</p>
-                        </div>
-                        <div class="col-md-10 mx-auto col-lg-6">
-                            <form [formGroup]="formulario" class="p-4 p-md-5 border rounded-3 bg-body-tertiary" (ngSubmit)="acceder()">
-                                <div class="form-floating mb-3">
-                                    <input type="email" class="form-control" id="correo" formControlName="correo" placeholder="name@example.com">
-                                    <label for="correo" class="form-label">Dirección de email</label>
-                                    <div *ngIf="formulario?.get('correo')?.invalid && formulario?.get('correo')?.touched" class="text-danger">
-                                        <div *ngIf="formulario?.get('correo')?.errors?.['required']">El correo es requerido.</div>
-                                        <div *ngIf="formulario?.get('correo')?.errors?.['email']">El correo debe tener un formato válido.</div>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <!--CONTENIDO DEL MODAL-->
+            <div class="modal-content">
+                <!--CABECERA-->
+                <!--<div class="modal-header">-->
+                <!--TITULO-->
+                <!-- <h1 class="modal-title fs-5" id="staticBackdropLabel">Bienvenido de nuevo!</h1> -->
+                <!--ICONO DE CIERRE DE LA CABERA-->
+                <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                <!--</div>-->
+                <!--CUERPO-->
+                <div class="modal-body">
+                    <div class="container col-xl-10 px-1 py-5">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 text-center text-lg-start">
+                                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Centro de Formación Artesanal
+                                    UG</h1>
+                                <p class="col-lg-10 fs-4">Ingrese las credenciales de acceso proporcionadas por el
+                                    Centro de Formación Artesanal UG</p>
+                            </div>
+                            <div class="col-md-10 mx-auto col-lg-6">
+                                <form class="p-4 p-md-5 border rounded-3 bg-body-tertiary" (ngSubmit)="iniciarSesion()">
+                                    <div class="form-floating mb-3">
+                                      <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                      <label for="floatingInput">Correo electrónico</label>
                                     </div>
-                                </div>
-                                <div class="form-floating mb-3">
-                                    <input type="password" class="form-control" id="contraseña" formControlName="contraseña" placeholder="Password">
-                                    <label for="contraseña">Contraseña</label>
-                                    <div *ngIf="formulario?.get('contraseña')?.invalid && formulario?.get('contraseña')?.touched" class="text-danger">
-                                        <div *ngIf="formulario?.get('contraseña')?.errors?.['required']">La contraseña es requerida.</div>
+                                    <div class="form-floating mb-3">
+                                      <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                      <label for="floatingPassword">Contraseña</label>
                                     </div>
-                                </div>
-                                <div class="checkbox mb-3">
-                                    <label>
-                                      <input type="checkbox" value="remember-me"> Recordarme
-                                    </label>
-                                </div>
-                                <button class="w-100 btn btn-lg btn-primary"  type="submit" routerLink="/estudiantes" data-bs-dismiss="modal">Iniciar sesión</button><br><br>
-                                <button class="w-100 btn btn-lg btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                                <hr class="my-4">
-                                <small class="text-body-secondary">Considere que previamente debió ser registrado por el Centro Artesanal UG.</small>
-                            </form>
+                                    <div class="checkbox mb-3">
+                                        <label>
+                                            <input type="checkbox" value="remember-me"> Recordarme
+                                        </label>
+                                    </div>
+                                    <button class="w-100 btn btn-lg btn-primary" type="submit" data-bs-dismiss="modal">Iniciar sesión</button><br><br>
+                                    <button class="w-100 btn btn-lg btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <hr class="my-4">
+                                    <small class="text-body-secondary">Considere que previamente debió ser registrado
+                                        por el Centro Artesanal UG.</small>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!--PIE-->
-            <!-- <div class="modal-footer">
+                <!--PIE-->
+                <!-- <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-primary">Acceder</button>
             </div> -->
+            </div>
         </div>
     </div>
 </div>
-</div>
-
-

@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstudiantesComponent } from './components/centro-formacion/estudiantes/estudiantes.component';
 import { DocentesComponent } from './components/centro-formacion/docentes/docentes.component';
+import { DetalleMod1Component } from './components/detalle-mod1/detalle-mod1.component';
+import { DetalleMod2Component } from './components/detalle-mod2/detalle-mod2.component';
+import { DetalleMod3Component } from './components/detalle-mod3/detalle-mod3.component';
 
 
 @NgModule({
@@ -21,7 +24,10 @@ import { DocentesComponent } from './components/centro-formacion/docentes/docent
     NavbarComponent,
     FooterComponent,
     EstudiantesComponent,
-    DocentesComponent
+    DocentesComponent,
+    DetalleMod1Component,
+    DetalleMod2Component,
+    DetalleMod3Component
   ],
   imports: [
     BrowserModule,

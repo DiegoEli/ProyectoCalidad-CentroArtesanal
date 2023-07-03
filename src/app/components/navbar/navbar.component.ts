@@ -27,19 +27,5 @@ export class NavbarComponent {
       alert('Usuario o contraseña incorrectos'); // Muestra un mensaje de alerta si las credenciales son incorrectas
     }
   }
-  
-  
-  // iniciarSesion() {
     
-  //   const correo = (<HTMLInputElement>document.getElementById('floatingInput')).value; // Obtén el valor del campo de correo electrónico
-  
-  //   if (correo === 'profesor@ug.edu.ec') {
-  //     this.router.navigate(['/docentes']); // Redirige al Componente1 si la cadena es igual a 'opcion1'
-  //   } else if (correo === 'estudiante@ug.edu.ec') {
-  //     this.router.navigate(['/estudiantes']); // Redirige al Componente2 si la cadena es igual a 'opcion2'
-  //   } else {
-  //     alert('Este usuario no existe'); // Muestra un mensaje de alerta si la cadena no coincide con las opciones anteriores
-  //   }
-  // }
-  
 }

@@ -11,7 +11,6 @@ import { FooterComponent } from './components/footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstudiantesComponent } from './components/centro-formacion/estudiantes/estudiantes.component';
-import { DocentesComponent } from './components/centro-formacion/docentes/docentes.component';
 import { DetalleMod1Component } from './components/detalle-mod1/detalle-mod1.component';
 import { DetalleMod2Component } from './components/detalle-mod2/detalle-mod2.component';
 import { DetalleMod3Component } from './components/detalle-mod3/detalle-mod3.component';
@@ -20,6 +19,7 @@ import { EstudiantesHorariosComponent } from './components/centro-formacion/estu
 import { EstudiantesAspiranteBecaComponent } from './components/centro-formacion/estudiantes-aspirante-beca/estudiantes-aspirante-beca.component';
 import { EstudiantesPerfilComponent } from './components/centro-formacion/estudiantes-perfil/estudiantes-perfil.component';
 import { EstudiantesModuloComponent } from './components/centro-formacion/estudiantes-modulo/estudiantes-modulo.component';
+import { ProfesoresComponent } from './components/centro-formacion/profesores/profesores.component';
 
 
 @NgModule({
@@ -29,7 +29,6 @@ import { EstudiantesModuloComponent } from './components/centro-formacion/estudi
     NavbarComponent,
     FooterComponent,
     EstudiantesComponent,
-    DocentesComponent,
     DetalleMod1Component,
     DetalleMod2Component,
     DetalleMod3Component,
@@ -37,7 +36,8 @@ import { EstudiantesModuloComponent } from './components/centro-formacion/estudi
     EstudiantesHorariosComponent,
     EstudiantesAspiranteBecaComponent,
     EstudiantesPerfilComponent,
-    EstudiantesModuloComponent
+    EstudiantesModuloComponent,
+    ProfesoresComponent
   ],
   imports: [
     BrowserModule,

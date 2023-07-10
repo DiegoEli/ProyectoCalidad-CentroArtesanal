@@ -1,0 +1,91 @@
+<header class="navbar bg-dark flex-md-nowrap p-0 shadow fixed-top">
+    <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6 text-white" href="#">Centro Artesanal UG</a>
+    <ul class="navbar-nav flex-row d-md-none">
+        <li class="nav-item text-nowrap">
+            <button class="nav-link px-3 text-white" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list"></i>
+            </button>
+        </li>
+    </ul>
+    <button type="button" class="btn btn-warning btn-sm" routerLink="/home">Cerrar sesión</button>
+</header>
+
+<!--CONTENEDOR PRINCIPAL-->
+<div class="container-fluid">
+    <div class="content-container mt-4">
+        <!--FILA-->
+        <div class="container-fluid">
+            <div class="row">
+                <!--1ERA COLUMNA(col-lg-2)-->
+                <div class="sidebar col-2 p-0 menu">
+                    <div class="offcanvas-lg offcanvas-end" tabindex="-1" id="sidebarMenu"
+                        aria-labelledby="sidebarMenuLabel">
+                        <div class="offcanvas-header">
+                            <h5 class="offcanvas-title" id="sidebarMenuLabel">Centro Artesanal UG</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                                data-bs-target="#sidebarMenu" aria-label="Close"></button>
+                        </div>
+                        <div>
+                            <ul class="nav card flex-column d-flex align-items-justify gap-1">
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-3" aria-current="page"
+                                        (click)="llama_modulo()">
+                                        <i class="bi bi-collection"></i>
+                                        Módulo
+                                    </a>
+                                    <!-- Separador -->
+                                    <hr class="my-2">
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-3" (click)="llama_notas()">
+                                        <i class="bi bi-journal-bookmark-fill"></i>
+                                        Calificaciones
+                                    </a>
+                                    <!-- Separador -->
+                                    <hr class="my-2">
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-3" (click)="llama_horarios()">
+                                        <i class="bi bi-calendar2-check"></i>
+                                        Horarios
+                                    </a>
+                                    <!-- Separador -->
+                                    <hr class="my-2">
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-3" (click)="llama_asp_beca()">
+                                        <i class="bi bi-mortarboard-fill"></i>
+                                        Aspirante a beca
+                                    </a>
+                                    <!-- Separador -->
+                                    <hr class="my-2">
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-3 mb-2"
+                                        (click)="llama_perfil_estudiante()">
+                                        <i class="bi bi-person-circle"></i>
+                                        Perfil
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!--2DA COLUMNA(col-lg-10)-->
+                <div class="container-fluid col-10 menu-2">
+                    <div class="card menu-2-1">
+                        <app-estudiantes-modulo *ngIf="mostrarModulo"></app-estudiantes-modulo>
+                        <app-estudiantes-notas *ngIf="mostrarNotas"></app-estudiantes-notas>
+                        <app-estudiantes-horarios *ngIf="mostrarHorarios"></app-estudiantes-horarios>
+                        <app-estudiantes-aspirante-beca *ngIf="mostrarAspBeca"></app-estudiantes-aspirante-beca>
+                        <app-estudiantes-perfil *ngIf="mostrarPerfil"></app-estudiantes-perfil>
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,7 +20,7 @@ export class NavbarComponent {
   
     // Verificar las credenciales ingresadas
     if (correo === 'profesor@ug.edu.ec' && contrasena === '12345') {
-      this.router.navigate(['/docentes']); // Redirige a componenteX si las credenciales son correctas
+      this.router.navigate(['/profesores']); // Redirige a componente si las credenciales son correctas
     } else if (correo === 'estudiante@ug.edu.ec' && contrasena === '123') {
       this.router.navigate(['/estudiantes']); // Redirige a componenteY si las credenciales son correctas
     } else {

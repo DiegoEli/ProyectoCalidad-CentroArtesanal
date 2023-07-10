@@ -9,7 +9,10 @@
                 <!--IMG MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body" style="text-align: center;">
-                        <h4 class="card-title" style="text-align: left;"><strong> Foto perfil: </strong><i class="bi bi-pencil-square"></i></h4>
+                        <h4 class="card-title" style="text-align: left;">
+                            <strong> Foto perfil: </strong>
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalFoto"></i>
+                        </h4>
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
                             class="card-img-top" alt="...">
                     </div>
@@ -48,22 +51,30 @@
                 <!--DIRECCION MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
-                        <h4 class="card-title"><strong> Direccion domiciliaria:</strong></h4>
-                        <p class="card-text"> Urdesa <i class="bi bi-pencil-square"></i></p>
+                        <h4 class="card-title">
+                            <strong> Direccion domiciliaria:</strong>
+                        </h4>
+                        <p class="card-text">Urdesa 
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalDireccion"></i>
+                        </p>
                     </div>
                 </div>
                 <!--CORREO MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Correo eletrónico:</strong></h4>
-                        <p class="card-text"> Urdesa <i class="bi bi-pencil-square"></i></p>
+                        <p class="card-text"> Urdesa 
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalCorreo"></i>
+                        </p>
                     </div>
                 </div>
                 <!--TELEFONO MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Telefono:</strong></h4>
-                        <p class="card-text"> 2-348576 <i class="bi bi-pencil-square"></i></p>
+                        <p class="card-text"> 2-348576 
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalTelefono"></i>
+                        </p>
                     </div>
                 </div>
                 <!--NIVEL DE EDUCACION NO MODIFICABLE-->
@@ -72,6 +83,149 @@
                         <h4 class="card-title"><strong> Nivel educativo:</strong></h4>
                         <p class="card-text"> Medio</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!--MODAL PARA FOTO-->
+    <div class="modal fade" id="ModalFoto" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <!--CONTENIDO DEL MODAL-->
+            <div class="modal-content">
+                <!--CABECERA-->
+                <div class="modal-header">
+                    <!--TITULO-->
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel"><strong>Edita tu foto de portada!</strong>
+                    </h1>
+                    <!--ICONO DE CIERRE DE LA CABERA-->
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <!--CUERPO-->
+                <div class="modal-body">
+                    <div class="row" style="align-items: center; text-align: center;">
+                        <div class="col-12 col-sm-12">
+                            <input type="file" id="inputFile" class="btn btn-primary rounded-3">
+                        </div>
+                        <div class="col-12 col-sm-12">
+                            <img id="inputFile"
+                                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+                                alt="Foto" class="img-fluid mt-3">
+                        </div>
+                    </div>
+                </div>
+                <!--PIE-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL PARA DIRECCION DOMICILIARIA-->
+    <div class="modal fade" id="ModalDireccion" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <!--CONTENIDO DEL MODAL-->
+            <div class="modal-content">
+                <!--CABECERA-->
+                <div class="modal-header">
+                    <!--TITULO-->
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        <strong>Edita tu dirección domiciliaria!</strong>
+                    </h1>
+                    <!--ICONO DE CIERRE DE LA CABERA-->
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <!--CUERPO-->
+                <div class="modal-body">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="direccionInput" class="h5"><strong>Dirección: </strong></label>
+                                <input type="text" class="form-control" id="direccionInput" placeholder="Ingrese la dirección">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--PIE-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL PARA CORREO ELECTRONICO-->
+    <div class="modal fade" id="ModalCorreo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <!--CONTENIDO DEL MODAL-->
+            <div class="modal-content">
+                <!--CABECERA-->
+                <div class="modal-header">
+                    <!--TITULO-->
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        <strong>Edita tu dirección de correo electrónico!</strong>
+                    </h1>
+                    <!--ICONO DE CIERRE DE LA CABERA-->
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <!--CUERPO-->
+                <div class="modal-body">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="correoInput" class="h5"><strong>Dirección de correo electrónico: </strong></label>
+                                <input type="text" class="form-control" id="correoInput" placeholder="Ingrese el correo electrónico">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--PIE-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--MODAL PARA TELEFONO-->
+    <div class="modal fade" id="ModalTelefono" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <!--CONTENIDO DEL MODAL-->
+            <div class="modal-content">
+                <!--CABECERA-->
+                <div class="modal-header">
+                    <!--TITULO-->
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel">
+                        <strong>Edita tu número telefónico!</strong>
+                    </h1>
+                    <!--ICONO DE CIERRE DE LA CABERA-->
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <!--CUERPO-->
+                <div class="modal-body">
+                    <div class="row" style="align-items: center;">
+                        <div class="col-12 col-sm-12">
+                            <div class="form-group">
+                                <label for="telefonoInput" class="h5"><strong>Teléfono: </strong></label>
+                                <input type="text" class="form-control" id="telefonoInput" placeholder="Ingrese su número de teléfono">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--PIE-->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
                 </div>
             </div>
         </div>

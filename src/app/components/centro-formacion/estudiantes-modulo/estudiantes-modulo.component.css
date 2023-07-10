@@ -1,0 +1,13 @@
+.img-mod1{
+    background: url("/assets/modul1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 250px 290px;
+}
+.lead{
+    font-size: 25px;
+}
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}

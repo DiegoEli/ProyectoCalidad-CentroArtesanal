@@ -15,6 +15,11 @@ import { DocentesComponent } from './components/centro-formacion/docentes/docent
 import { DetalleMod1Component } from './components/detalle-mod1/detalle-mod1.component';
 import { DetalleMod2Component } from './components/detalle-mod2/detalle-mod2.component';
 import { DetalleMod3Component } from './components/detalle-mod3/detalle-mod3.component';
+import { EstudiantesNotasComponent } from './components/centro-formacion/estudiantes-notas/estudiantes-notas.component';
+import { EstudiantesHorariosComponent } from './components/centro-formacion/estudiantes-horarios/estudiantes-horarios.component';
+import { EstudiantesAspiranteBecaComponent } from './components/centro-formacion/estudiantes-aspirante-beca/estudiantes-aspirante-beca.component';
+import { EstudiantesPerfilComponent } from './components/centro-formacion/estudiantes-perfil/estudiantes-perfil.component';
+import { EstudiantesModuloComponent } from './components/centro-formacion/estudiantes-modulo/estudiantes-modulo.component';
 
 
 @NgModule({
@@ -27,7 +32,12 @@ import { DetalleMod3Component } from './components/detalle-mod3/detalle-mod3.com
     DocentesComponent,
     DetalleMod1Component,
     DetalleMod2Component,
-    DetalleMod3Component
+    DetalleMod3Component,
+    EstudiantesNotasComponent,
+    EstudiantesHorariosComponent,
+    EstudiantesAspiranteBecaComponent,
+    EstudiantesPerfilComponent,
+    EstudiantesModuloComponent
   ],
   imports: [
     BrowserModule,

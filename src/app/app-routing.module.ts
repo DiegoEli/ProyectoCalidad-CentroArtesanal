@@ -6,6 +6,11 @@ import { EstudiantesComponent } from './components/centro-formacion/estudiantes/
 import { DetalleMod1Component } from './components/detalle-mod1/detalle-mod1.component';
 import { DetalleMod2Component } from './components/detalle-mod2/detalle-mod2.component';
 import { DetalleMod3Component } from './components/detalle-mod3/detalle-mod3.component';
+import { EstudiantesAspiranteBecaComponent } from './components/centro-formacion/estudiantes-aspirante-beca/estudiantes-aspirante-beca.component';
+import { EstudiantesHorariosComponent } from './components/centro-formacion/estudiantes-horarios/estudiantes-horarios.component';
+import { EstudiantesModuloComponent } from './components/centro-formacion/estudiantes-modulo/estudiantes-modulo.component';
+import { EstudiantesNotasComponent } from './components/centro-formacion/estudiantes-notas/estudiantes-notas.component';
+import { EstudiantesPerfilComponent } from './components/centro-formacion/estudiantes-perfil/estudiantes-perfil.component';
 
 const routes: Routes = [
   { path: '', redirectTo:  'home', pathMatch: 'full'},
@@ -15,6 +20,11 @@ const routes: Routes = [
   { path: 'detalle-mod1', component: DetalleMod1Component},
   { path: 'detalle-mod2', component: DetalleMod2Component},
   { path: 'detalle-mod3', component: DetalleMod3Component},
+  { path: 'estudiantes-aspirante-beca', component: EstudiantesAspiranteBecaComponent},
+  { path: 'estudiantes-horarios', component: EstudiantesHorariosComponent},
+  { path: 'estudiantes-modulo', component: EstudiantesModuloComponent},
+  { path: 'estudiantes-notas', component: EstudiantesNotasComponent},
+  { path: 'estudiantes-perfil', component: EstudiantesPerfilComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full'}
 ];
 

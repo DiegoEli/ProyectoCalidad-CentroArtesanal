@@ -8,50 +8,42 @@ import { Router } from '@angular/router';
 })
 export class ProfesoresComponent implements OnInit{
   //INICIO INTERFAZ GRÁFICA
-  mostrarAspBeca = false;
-  mostrarPerfil = false;
-  mostrarModulo = false;
-  mostrarNotas = false;
-  mostrarHorarios = false;
+  mostrarBienvenida = true;
+  mostrarHorarioDocente = false;
+  mostrarSalario = false;
+  mostrarPerfilDocente = false;
+  mostrarIngCalificaciones = false;
 
   constructor(private router: Router){}
 
   ngOnInit(): void {}
 
-  llama_perfil_estudiante() {
-    this.mostrarPerfil = true;
-    this.mostrarAspBeca = false;
-    this.mostrarModulo = false;
-    this.mostrarNotas = false;
-    this.mostrarHorarios = false;
+  llama_horario_docente() {
+    this.mostrarBienvenida = false;
+    this.mostrarHorarioDocente = true;
+    this.mostrarSalario = false;
+    this.mostrarPerfilDocente = false;
+    this.mostrarIngCalificaciones = false;
   }
-  llama_asp_beca(){
-    this.mostrarPerfil = false;
-    this.mostrarAspBeca = true;
-    this.mostrarModulo = false;
-    this.mostrarNotas = false;
-    this.mostrarHorarios = false;
+  llama_salario(){
+    this.mostrarBienvenida = false;
+    this.mostrarHorarioDocente = false;
+    this.mostrarSalario = true;
+    this.mostrarPerfilDocente = false;
+    this.mostrarIngCalificaciones = false;
   }
-  llama_horarios(){
-    this.mostrarPerfil = false;
-    this.mostrarAspBeca = false;
-    this.mostrarModulo = false;
-    this.mostrarNotas = false;
-    this.mostrarHorarios = true;
+  llama_perfil_docente(){
+    this.mostrarBienvenida = false;
+    this.mostrarHorarioDocente = false;
+    this.mostrarSalario = false;
+    this.mostrarPerfilDocente = true;
+    this.mostrarIngCalificaciones = false;
   }
-  llama_notas(){
-    this.mostrarPerfil = false;
-    this.mostrarAspBeca = false;
-    this.mostrarModulo = false;
-    this.mostrarNotas = true;
-    this.mostrarHorarios = false;
-  }
-  llama_modulo(){
-    this.mostrarPerfil = false;
-    this.mostrarAspBeca = false;
-    this.mostrarModulo = true;
-    this.mostrarNotas = false;
-    this.mostrarHorarios = false;
-  }
-  //FIN INTERFAZ GRÁFICA
+  llama_ingreso_calificaciones(){
+    this.mostrarBienvenida = false;
+    this.mostrarHorarioDocente = false;
+    this.mostrarSalario = false;
+    this.mostrarPerfilDocente = false;
+    this.mostrarIngCalificaciones = true;
+  }//FIN INTERFAZ GRÁFICA
 }

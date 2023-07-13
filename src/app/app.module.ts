@@ -20,6 +20,10 @@ import { EstudiantesAspiranteBecaComponent } from './components/centro-formacion
 import { EstudiantesPerfilComponent } from './components/centro-formacion/estudiantes-perfil/estudiantes-perfil.component';
 import { EstudiantesModuloComponent } from './components/centro-formacion/estudiantes-modulo/estudiantes-modulo.component';
 import { ProfesoresComponent } from './components/centro-formacion/profesores/profesores.component';
+import { ProfesoresPerfilComponent } from './components/centro-formacion/profesores-perfil/profesores-perfil.component';
+import { ProfesoresSalarioComponent } from './components/centro-formacion/profesores-salario/profesores-salario.component';
+import { ProfesoresHorariosComponent } from './components/centro-formacion/profesores-horarios/profesores-horarios.component';
+import { ProfesoresIngresoCalificacionesComponent } from './components/centro-formacion/profesores-ingreso-calificaciones/profesores-ingreso-calificaciones.component';
 
 
 @NgModule({
@@ -37,7 +41,11 @@ import { ProfesoresComponent } from './components/centro-formacion/profesores/pr
     EstudiantesAspiranteBecaComponent,
     EstudiantesPerfilComponent,
     EstudiantesModuloComponent,
-    ProfesoresComponent
+    ProfesoresComponent,
+    ProfesoresPerfilComponent,
+    ProfesoresSalarioComponent,
+    ProfesoresHorariosComponent,
+    ProfesoresIngresoCalificacionesComponent
   ],
   imports: [
     BrowserModule,

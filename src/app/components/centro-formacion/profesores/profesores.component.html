@@ -29,43 +29,38 @@
                         </div>
                         <div>
                             <ul class="nav card flex-column d-flex align-items-justify gap-1">
-                                <li class="nav-item">
+                                <li class="nav-item mt-1">
                                     <a class="nav-link d-flex align-items-center gap-3" aria-current="page"
-                                        (click)="llama_modulo()">
-                                        <i class="bi bi-collection"></i>
-                                        Módulo
-                                    </a>
-                                    <!-- Separador -->
-                                    <hr class="my-2">
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-3" (click)="llama_notas()">
-                                        <i class="bi bi-journal-bookmark-fill"></i>
-                                        Calificaciones
-                                    </a>
-                                    <!-- Separador -->
-                                    <hr class="my-2">
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-3" (click)="llama_horarios()">
+                                        (click)="llama_horario_docente()">
                                         <i class="bi bi-calendar2-check"></i>
-                                        Horarios
+                                        Horarios de clases
                                     </a>
                                     <!-- Separador -->
                                     <hr class="my-2">
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-3" (click)="llama_asp_beca()">
-                                        <i class="bi bi-mortarboard-fill"></i>
-                                        Aspirante a beca
+                                    <a class="nav-link d-flex align-items-center gap-3" 
+                                        (click)="llama_salario()">
+                                        <i class="bi bi-currency-dollar"></i>
+                                        Salario
+                                    </a>
+                                    <!-- Separador -->
+                                    <hr class="my-2">
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link d-flex align-items-center gap-3" 
+                                        (click)="llama_ingreso_calificaciones()">
+                                        <i class="bi bi-journal-check"></i>
+                                        Ingresar calificaciones
                                     </a>
                                     <!-- Separador -->
                                     <hr class="my-2">
                                 </li>
 
                                 <li class="nav-item">
-                                    <a class="nav-link d-flex align-items-center gap-3 mb-2"
-                                        (click)="llama_perfil_estudiante()">
+                                    <a class="nav-link d-flex align-items-center gap-3 mb-2" 
+                                        (click)="llama_perfil_docente()">
                                         <i class="bi bi-person-circle"></i>
                                         Perfil
                                     </a>
@@ -77,11 +72,23 @@
                 <!--2DA COLUMNA(col-lg-10)-->
                 <div class="container-fluid col-10 menu-2">
                     <div class="card menu-2-1">
-                        <app-estudiantes-modulo *ngIf="mostrarModulo"></app-estudiantes-modulo>
-                        <app-estudiantes-notas *ngIf="mostrarNotas"></app-estudiantes-notas>
-                        <app-estudiantes-horarios *ngIf="mostrarHorarios"></app-estudiantes-horarios>
-                        <app-estudiantes-aspirante-beca *ngIf="mostrarAspBeca"></app-estudiantes-aspirante-beca>
-                        <app-estudiantes-perfil *ngIf="mostrarPerfil"></app-estudiantes-perfil>
+                        <div class="p-5 rounded-3 border-0" *ngIf="mostrarBienvenida">
+                            <div class="row">
+                                <div class="container p-2 col-md-12">
+                                    <h4 class="display-5 fw-bold mb-3">
+                                        Bienvenido al Centro de Formación Artesanal UG...!!!
+                                    </h4>
+                                    <p class="fs-4">
+                                        Usted se ha identificado como un <strong>docente.</strong> A continuación puede navegar entre 
+                                        las opciones disponibles del sistema.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <app-profesores-horarios *ngIf="mostrarHorarioDocente"></app-profesores-horarios>
+                        <app-profesores-salario *ngIf="mostrarSalario"></app-profesores-salario>
+                        <app-profesores-ingreso-calificaciones *ngIf="mostrarIngCalificaciones"></app-profesores-ingreso-calificaciones>
+                        <app-profesores-perfil *ngIf="mostrarPerfilDocente"></app-profesores-perfil>
                         <br>
                     </div>
                 </div>

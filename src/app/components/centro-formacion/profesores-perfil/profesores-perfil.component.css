@@ -1,0 +1,51 @@
+.datos{
+    margin-left: 2%;
+}
+
+
+img{
+    width: 220px;
+    height: 200px;
+    margin-bottom: 3%;
+    border: solid 2px black;
+    box-shadow: 1px 1px 2px;
+}
+
+h2{
+    font-size: 1rem;
+    font-weight: bold;
+}
+.texto{
+
+    font-weight: none;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    color: rgb(0, 0, 0);
+}
+
+/* button{
+
+    margin-bottom: 2%;
+    border-radius: 12%;
+    box-shadow: 2px 2px 2px black;
+    border: none;
+    background-color: rgba(20, 168, 254, 0.954);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+} */
+
+button:hover{
+    background-color: rgb(9, 167, 199);
+  }
+
+i{
+    font-size: 19px;
+    color: green;
+    font-weight: bold;
+    cursor: pointer;
+}
+.bi-arrow-left{
+    color: black;
+}

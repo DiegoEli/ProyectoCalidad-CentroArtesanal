@@ -77,6 +77,19 @@
                 <!--2DA COLUMNA(col-lg-10)-->
                 <div class="container-fluid col-10 menu-2">
                     <div class="card menu-2-1">
+                        <div class="p-5 rounded-3 border-0" *ngIf="mostrarBienvenida">
+                            <div class="row">
+                                <div class="container p-2 col-md-12">
+                                    <h4 class="display-5 fw-bold mb-3">
+                                        Bienvenido al Centro de Formación Artesanal UG...!!!
+                                    </h4>
+                                    <p class="fs-4">
+                                        Usted se ha identificado como un estudiante. A continuación puede navegar entre 
+                                        las opciones disponibles del sistema.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                         <app-estudiantes-modulo *ngIf="mostrarModulo"></app-estudiantes-modulo>
                         <app-estudiantes-notas *ngIf="mostrarNotas"></app-estudiantes-notas>
                         <app-estudiantes-horarios *ngIf="mostrarHorarios"></app-estudiantes-horarios>

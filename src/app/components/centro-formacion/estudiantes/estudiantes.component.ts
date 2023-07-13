@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 })
 export class EstudiantesComponent implements OnInit{
   //INICIO INTERFAZ GRÁFICA
+  mostrarBienvenida = true;
   mostrarAspBeca = false;
   mostrarPerfil = false;
   mostrarModulo = false;
@@ -24,6 +25,7 @@ export class EstudiantesComponent implements OnInit{
     this.mostrarModulo = false;
     this.mostrarNotas = false;
     this.mostrarHorarios = false;
+    this.mostrarBienvenida = false;
   }
   llama_asp_beca(){
     this.mostrarPerfil = false;
@@ -31,6 +33,7 @@ export class EstudiantesComponent implements OnInit{
     this.mostrarModulo = false;
     this.mostrarNotas = false;
     this.mostrarHorarios = false;
+    this.mostrarBienvenida = false;
   }
   llama_horarios(){
     this.mostrarPerfil = false;
@@ -38,6 +41,7 @@ export class EstudiantesComponent implements OnInit{
     this.mostrarModulo = false;
     this.mostrarNotas = false;
     this.mostrarHorarios = true;
+    this.mostrarBienvenida = false;
   }
   llama_notas(){
     this.mostrarPerfil = false;
@@ -45,6 +49,7 @@ export class EstudiantesComponent implements OnInit{
     this.mostrarModulo = false;
     this.mostrarNotas = true;
     this.mostrarHorarios = false;
+    this.mostrarBienvenida = false;
   }
   llama_modulo(){
     this.mostrarPerfil = false;
@@ -52,6 +57,7 @@ export class EstudiantesComponent implements OnInit{
     this.mostrarModulo = true;
     this.mostrarNotas = false;
     this.mostrarHorarios = false;
+    this.mostrarBienvenida = false;
   }
   //FIN INTERFAZ GRÁFICA
 }

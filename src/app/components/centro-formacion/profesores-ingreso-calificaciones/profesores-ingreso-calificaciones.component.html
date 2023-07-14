@@ -1,1 +1,71 @@
-<p>profesores-ingreso-calificaciones works!</p>
+<div class="container mt-3 p-2 m-2">
+    <div class="container">
+        <h1>Registro de Notas</h1>
+        <form>
+            <div class="row container justify-content-center">
+                <div class="col-10">
+                    <div class="form-group mt-3 mb-4">
+                        <label for="student-select" class="font-weight-bold h4 mb-2">Seleccionar Estudiante:</label>
+                        <select class="form-control" id="student-select" name="student" [(ngModel)]="estudiante">
+                            <option value="estudiante1">Estudiante 1</option>
+                            <option value="estudiante2">Estudiante 2</option>
+                            <option value="estudiante3">Estudiante 3</option>
+                            <!-- Agrega más opciones de estudiantes según tus necesidades -->
+                        </select>
+                    </div>
+                </div>
+                <div class="col-10">
+                    <div class="form-group mb-4">
+                        <label for="modulo-select" class="font-weight-bold h4 mb-2">Seleccionar Módulo:</label>
+                        <select class="form-control" id="modulo-select" name="modulo" [(ngModel)]="modulo">
+                            <option value="modulo1">Módulo 1</option>
+                            <option value="modulo2">Módulo 2</option>
+                            <option value="modulo3">Módulo 3</option>
+                            <!-- Agrega más opciones de módulos según tus necesidades -->
+                        </select>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group mb-4">
+                        <label for="parcial1-input" class="font-weight-bold h4 mb-2">Nota Primer Parcial:</label>
+                        <input type="number" class="form-control" id="parcial1-input" step="0.1" name="parcial1"
+                            [(ngModel)]="parcial1" (change)="calcularPromedio()">
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="form-group mb-4">
+                        <label for="parcial2-input" class="font-weight-bold h4 mb-2">Nota Segundo Parcial:</label>
+                        <input type="number" class="form-control" id="parcial2-input" step="0.1" name="parcial2"
+                            [(ngModel)]="parcial2" (change)="calcularPromedio()">
+                    </div>
+                </div>
+                <div class="col-10">
+                    <button type="button" class="btn btn-primary w-100 mb-4 d-block"
+                        (click)="registrarCalificaciones()">Registrar Calificaciones</button>
+                </div>
+            </div>
+        </form>
+
+        <h3>Calificaciones Registradas</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Estudiante</th>
+                    <th>Primer Parcial</th>
+                    <th>Segundo Parcial</th>
+                    <th>Promedio</th>
+                    <th>Módulo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let calificacion of calificaciones">
+                    <td>{{ calificacion.estudiante }}</td>
+                    <td>{{ calificacion.parcial1 }}</td>
+                    <td>{{ calificacion.parcial2 }}</td>
+                    <td>{{ calificacion.promedio }}</td>
+                    <td>{{ calificacion.modulo }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -2,7 +2,7 @@
     <div class="container">
         <h1>Registro de Notas</h1>
         <form>
-            <div class="row container justify-content-center">
+            <div class="row container justify-content-center bg-light">
                 <div class="col-10">
                     <div class="form-group mt-3 mb-4">
                         <label for="student-select" class="font-weight-bold h4 mb-2">Seleccionar Estudiante:</label>
@@ -21,7 +21,6 @@
                             <option value="modulo1">Módulo 1</option>
                             <option value="modulo2">Módulo 2</option>
                             <option value="modulo3">Módulo 3</option>
-                            <!-- Agrega más opciones de módulos según tus necesidades -->
                         </select>
                     </div>
                 </div>
@@ -51,19 +50,19 @@
             <thead>
                 <tr>
                     <th>Estudiante</th>
+                    <th>Módulo</th>
                     <th>Primer Parcial</th>
                     <th>Segundo Parcial</th>
                     <th>Promedio</th>
-                    <th>Módulo</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let calificacion of calificaciones">
                     <td>{{ calificacion.estudiante }}</td>
+                    <td>{{ calificacion.modulo }}</td>
                     <td>{{ calificacion.parcial1 }}</td>
                     <td>{{ calificacion.parcial2 }}</td>
                     <td>{{ calificacion.promedio }}</td>
-                    <td>{{ calificacion.modulo }}</td>
                 </tr>
             </tbody>
         </table>

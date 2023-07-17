@@ -1,11 +1,15 @@
 -- -----------------------------------------------------
 -- Schema BD_Centro-Artesanal-UG
 -- -----------------------------------------------------
-CREATE DATABASE BD_Centro_Artesanal_UG;
+DROP DATABASE IF EXISTS BD_Centro_Artesanal_UG;
+
+CREATE DATABASE IF NOT EXISTS BD_Centro_Artesanal_UG;
 USE BD_Centro_Artesanal_UG;
+
 -- -----------------------------------------------------
 -- Table `perfil_estudiante`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS perfil_estudiante;
 CREATE TABLE IF NOT EXISTS perfil_estudiante (
   idperfil_estudiante INT NOT NULL AUTO_INCREMENT,
   foto_perfil LONGBLOB NULL,
@@ -17,12 +21,13 @@ CREATE TABLE IF NOT EXISTS perfil_estudiante (
   correo_electronico VARCHAR(45) NULL,
   telefono VARCHAR(15) NULL,
   nivel_educativo VARCHAR(45) NULL,
-  PRIMARY KEY (idperfil_estudiante));
-
+  PRIMARY KEY (idperfil_estudiante)
+);
 
 -- -----------------------------------------------------
 -- Table `horario_estudiante`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS horario_estudiante;
 CREATE TABLE IF NOT EXISTS horario_estudiante (
   idhorario_estudiante INT NOT NULL AUTO_INCREMENT,
   asignatura VARCHAR(45) NULL,
@@ -35,12 +40,13 @@ CREATE TABLE IF NOT EXISTS horario_estudiante (
   domingo VARCHAR(45) NULL,
   perfil_estudiante_idperfil_estudiante INT NOT NULL,
   PRIMARY KEY (idhorario_estudiante),
-  CONSTRAINT fk_horario_estudiante_perfil_estudiante1 FOREIGN KEY (perfil_estudiante_idperfil_estudiante) REFERENCES perfil_estudiante (idperfil_estudiante));
-
+  CONSTRAINT fk_horario_estudiante_perfil_estudiante1 FOREIGN KEY (perfil_estudiante_idperfil_estudiante) REFERENCES perfil_estudiante (idperfil_estudiante)
+);
 
 -- -----------------------------------------------------
 -- Table `perfil_docente`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS perfil_docente;
 CREATE TABLE IF NOT EXISTS perfil_docente (
   idperfil_docente INT NOT NULL AUTO_INCREMENT,
   foto_perfil LONGBLOB NULL,
@@ -51,12 +57,13 @@ CREATE TABLE IF NOT EXISTS perfil_docente (
   direccion_domiciliaria VARCHAR(45) NULL,
   correo_electronico VARCHAR(45) NULL,
   telefono VARCHAR(45) NULL,
-  PRIMARY KEY (idperfil_docente));
-
+  PRIMARY KEY (idperfil_docente)
+);
 
 -- -----------------------------------------------------
 -- Table `salario`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS salario;
 CREATE TABLE IF NOT EXISTS salario (
   idsalario INT NOT NULL AUTO_INCREMENT,
   titulo VARCHAR(45) NULL,
@@ -64,12 +71,13 @@ CREATE TABLE IF NOT EXISTS salario (
   cantidad_sueldo VARCHAR(45) NULL,
   perfil_docente_idperfil_docente INT NOT NULL,
   PRIMARY KEY (idsalario),
-  CONSTRAINT fk_salario_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente));
-
+  CONSTRAINT fk_salario_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente)
+);
 
 -- -----------------------------------------------------
 -- Table `calificaciones`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS calificaciones;
 CREATE TABLE IF NOT EXISTS calificaciones (
   idcalificaciones INT NOT NULL AUTO_INCREMENT,
   asignatura VARCHAR(45) NULL,
@@ -81,23 +89,25 @@ CREATE TABLE IF NOT EXISTS calificaciones (
   perfil_estudiante_idperfil_estudiante INT NOT NULL,
   PRIMARY KEY (idcalificaciones),
   CONSTRAINT fk_calificaciones_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente),
-  CONSTRAINT fk_calificaciones_perfil_estudiante1 FOREIGN KEY (perfil_estudiante_idperfil_estudiante) REFERENCES perfil_estudiante (idperfil_estudiante));
-
+  CONSTRAINT fk_calificaciones_perfil_estudiante1 FOREIGN KEY (perfil_estudiante_idperfil_estudiante) REFERENCES perfil_estudiante (idperfil_estudiante)
+);
 
 -- -----------------------------------------------------
 -- Table `modulo`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS modulo;
 CREATE TABLE IF NOT EXISTS modulo (
   idmodulo INT NOT NULL AUTO_INCREMENT,
   nombre_modulo VARCHAR(45) NULL,
   horario_estudiante_idhorario_estudiante INT NOT NULL,
   PRIMARY KEY (idmodulo),
-  CONSTRAINT fk_modulo_horario_estudiante1 FOREIGN KEY (horario_estudiante_idhorario_estudiante) REFERENCES horario_estudiante (idhorario_estudiante));
-
+  CONSTRAINT fk_modulo_horario_estudiante1 FOREIGN KEY (horario_estudiante_idhorario_estudiante) REFERENCES horario_estudiante (idhorario_estudiante)
+);
 
 -- -----------------------------------------------------
 -- Table `horario_docente`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS horario_docente;
 CREATE TABLE IF NOT EXISTS horario_docente (
   idhorario_docente INT NOT NULL AUTO_INCREMENT,
   asignatura VARCHAR(45) NULL,
@@ -110,7 +120,8 @@ CREATE TABLE IF NOT EXISTS horario_docente (
   domingo VARCHAR(45) NULL,
   perfil_docente_idperfil_docente INT NOT NULL,
   PRIMARY KEY (idhorario_docente),
-  CONSTRAINT fk_horario_docente_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente));
+  CONSTRAINT fk_horario_docente_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente)
+);
 
 -- -----------------------------------------------------
 -- OPERACIONES DE CONSULTA O MODIFICACION

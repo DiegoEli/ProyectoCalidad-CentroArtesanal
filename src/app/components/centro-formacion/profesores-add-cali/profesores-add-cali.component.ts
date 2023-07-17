@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-profesores-ingreso-calificaciones',
-  templateUrl: './profesores-ingreso-calificaciones.component.html',
-  styleUrls: ['./profesores-ingreso-calificaciones.component.css']
+  selector: 'app-profesores-add-cali',
+  templateUrl: './profesores-add-cali.component.html',
+  styleUrls: ['./profesores-add-cali.component.css']
 })
-export class ProfesoresIngresoCalificacionesComponent {
+export class ProfesoresAddCaliComponent {
   estudiante: string = ''; // Variable para almacenar el estudiante seleccionado
   parcial1: number = 0; // Variable para almacenar la nota del primer parcial
   parcial2: number = 0; // Variable para almacenar la nota del segundo parcial
@@ -36,5 +36,4 @@ export class ProfesoresIngresoCalificacionesComponent {
     this.modulo = '';
     this.promedio = 0;
   }
-
 }

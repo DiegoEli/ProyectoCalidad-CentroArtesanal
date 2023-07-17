@@ -23,7 +23,7 @@ import { ProfesoresComponent } from './components/centro-formacion/profesores/pr
 import { ProfesoresPerfilComponent } from './components/centro-formacion/profesores-perfil/profesores-perfil.component';
 import { ProfesoresSalarioComponent } from './components/centro-formacion/profesores-salario/profesores-salario.component';
 import { ProfesoresHorariosComponent } from './components/centro-formacion/profesores-horarios/profesores-horarios.component';
-import { ProfesoresIngresoCalificacionesComponent } from './components/centro-formacion/profesores-ingreso-calificaciones/profesores-ingreso-calificaciones.component';
+import { ProfesoresAddCaliComponent } from './components/centro-formacion/profesores-add-cali/profesores-add-cali.component';
 
 
 @NgModule({
@@ -45,7 +45,7 @@ import { ProfesoresIngresoCalificacionesComponent } from './components/centro-fo
     ProfesoresPerfilComponent,
     ProfesoresSalarioComponent,
     ProfesoresHorariosComponent,
-    ProfesoresIngresoCalificacionesComponent
+    ProfesoresAddCaliComponent
   ],
   imports: [
     BrowserModule,

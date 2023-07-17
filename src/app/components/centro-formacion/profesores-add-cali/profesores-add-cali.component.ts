@@ -11,6 +11,7 @@ export class ProfesoresAddCaliComponent {
   parcial2: number = 0; // Variable para almacenar la nota del segundo parcial
   modulo: string = ''; // Variable para almacenar el módulo seleccionado
   promedio: number = 0; // Variable para almacenar el promedio calculado
+  asignatura: string = ''; // Variable para almacenar la asignatura seleccionada
   calificaciones: any[] = []; // Array para almacenar las calificaciones registradas
 
   calcularPromedio(): void {
@@ -23,7 +24,8 @@ export class ProfesoresAddCaliComponent {
       parcial1: this.parcial1,
       parcial2: this.parcial2,
       promedio: this.promedio,
-      modulo: this.modulo
+      modulo: this.modulo,
+      asignatura: this.asignatura
     };
 
     // Agregar la calificación al array de calificaciones
@@ -34,6 +36,7 @@ export class ProfesoresAddCaliComponent {
     this.parcial1 = 0;
     this.parcial2 = 0;
     this.modulo = '';
+    this.asignatura = '';
     this.promedio = 0;
   }
 }

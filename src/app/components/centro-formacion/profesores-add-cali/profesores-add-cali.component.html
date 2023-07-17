@@ -24,6 +24,15 @@
                         </select>
                     </div>
                 </div>
+                <div class="col-10">
+                    <div class="form-group mb-4">
+                        <label for="asignatura-select" class="font-weight-bold h4 mb-2">Seleccionar Asignatura:</label>
+                        <select class="form-control" id="asignatura-select" name="asignatura" [(ngModel)]="asignatura">
+                            <option value="Mantenimiento de computadoras">Mantenimiento de computadoras</option>
+                            <option value="Cableado estructurado">Cableado estructurado</option>
+                        </select>
+                    </div>
+                </div>
                 <div class="col-5">
                     <div class="form-group mb-4">
                         <label for="parcial1-input" class="font-weight-bold h4 mb-2">Nota Primer Parcial:</label>
@@ -51,6 +60,7 @@
                 <tr>
                     <th>Estudiante</th>
                     <th>Módulo</th>
+                    <th>Asignatura</th>
                     <th>Primer Parcial</th>
                     <th>Segundo Parcial</th>
                     <th>Promedio</th>
@@ -60,6 +70,7 @@
                 <tr *ngFor="let calificacion of calificaciones">
                     <td>{{ calificacion.estudiante }}</td>
                     <td>{{ calificacion.modulo }}</td>
+                    <td>{{ calificacion.asignatura }}</td>
                     <td>{{ calificacion.parcial1 }}</td>
                     <td>{{ calificacion.parcial2 }}</td>
                     <td>{{ calificacion.promedio }}</td>

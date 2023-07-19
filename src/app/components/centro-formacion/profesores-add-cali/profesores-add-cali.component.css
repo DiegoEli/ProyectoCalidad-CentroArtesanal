@@ -1,0 +1,34 @@
+i{
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.bi-pencil-square{
+    color: rgb(71, 208, 71);
+}
+
+.bi-file-earmark-x-fill{
+    color: red;
+}
+.table-custom-rounded {
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table-custom-rounded thead th:first-child {
+    border-top-left-radius: 10px;
+}
+
+.table-custom-rounded thead th:last-child {
+    border-top-right-radius: 10px;
+}
+
+th{
+    font-weight: bold;
+    background-color: #162B4E;
+    color: white;
+    font-weight: bold;
+}

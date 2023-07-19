@@ -1,11 +1,11 @@
-<div class="container mt-3 p-2 m-2">
-    <div class="container">
+<div class="container mt-3">
+    <div class="container table-responsive">
         <h1>Registro de Notas</h1>
         <form>
             <div class="row container justify-content-center bg-light">
                 <div class="col-10">
                     <div class="form-group mt-3 mb-4">
-                        <label for="student-select" class="font-weight-bold h4 mb-2">Seleccionar Estudiante:</label>
+                        <label for="student-select" class="font-weight-bold h5 mb-2">Seleccionar Estudiante:</label>
                         <select class="form-control" id="student-select" name="student" [(ngModel)]="estudiante">
                             <option value="estudiante1">Estudiante 1</option>
                             <option value="estudiante2">Estudiante 2</option>
@@ -16,7 +16,7 @@
                 </div>
                 <div class="col-10">
                     <div class="form-group mb-4">
-                        <label for="modulo-select" class="font-weight-bold h4 mb-2">Seleccionar Módulo:</label>
+                        <label for="modulo-select" class="font-weight-bold h5 mb-2">Seleccionar Módulo:</label>
                         <select class="form-control" id="modulo-select" name="modulo" [(ngModel)]="modulo">
                             <option value="modulo1">Módulo 1</option>
                             <option value="modulo2">Módulo 2</option>
@@ -26,7 +26,7 @@
                 </div>
                 <div class="col-10">
                     <div class="form-group mb-4">
-                        <label for="asignatura-select" class="font-weight-bold h4 mb-2">Seleccionar Asignatura:</label>
+                        <label for="asignatura-select" class="font-weight-bold h5 mb-2">Seleccionar Asignatura:</label>
                         <select class="form-control" id="asignatura-select" name="asignatura" [(ngModel)]="asignatura">
                             <option value="Mantenimiento de computadoras">Mantenimiento de computadoras</option>
                             <option value="Cableado estructurado">Cableado estructurado</option>
@@ -35,27 +35,27 @@
                 </div>
                 <div class="col-5">
                     <div class="form-group mb-4">
-                        <label for="parcial1-input" class="font-weight-bold h4 mb-2">Nota Primer Parcial:</label>
+                        <label for="parcial1-input" class="font-weight-bold h5 mb-2">Nota Primer Parcial:</label>
                         <input type="number" class="form-control" id="parcial1-input" step="0.1" name="parcial1"
                             [(ngModel)]="parcial1" (change)="calcularPromedio()">
                     </div>
                 </div>
                 <div class="col-5">
                     <div class="form-group mb-4">
-                        <label for="parcial2-input" class="font-weight-bold h4 mb-2">Nota Segundo Parcial:</label>
+                        <label for="parcial2-input" class="font-weight-bold h5 mb-2">Nota Segundo Parcial:</label>
                         <input type="number" class="form-control" id="parcial2-input" step="0.1" name="parcial2"
                             [(ngModel)]="parcial2" (change)="calcularPromedio()">
                     </div>
                 </div>
                 <div class="col-10">
                     <button type="button" class="btn btn-primary w-100 mb-4 d-block"
-                        (click)="registrarCalificaciones()">Registrar Calificaciones</button>
+                        (click)="registrarCalificaciones()">Guardar Calificaciones</button>
                 </div>
             </div>
         </form>
 
         <h3>Calificaciones Registradas</h3>
-        <table class="table">
+        <table class="table table-striped table-custom-rounded mt-3">
             <thead>
                 <tr>
                     <th>Estudiante</th>
@@ -64,6 +64,7 @@
                     <th>Primer Parcial</th>
                     <th>Segundo Parcial</th>
                     <th>Promedio</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,6 +75,10 @@
                     <td>{{ calificacion.parcial1 }}</td>
                     <td>{{ calificacion.parcial2 }}</td>
                     <td>{{ calificacion.promedio }}</td>
+                    <td>
+                        <i class="bi bi-pencil-square"></i>
+                        <i class="bi bi-file-earmark-x-fill"></i>
+                    </td>
                 </tr>
             </tbody>
         </table>

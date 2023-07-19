@@ -99,6 +99,7 @@ DROP TABLE IF EXISTS modulo;
 CREATE TABLE IF NOT EXISTS modulo (
   idmodulo INT NOT NULL AUTO_INCREMENT,
   nombre_modulo VARCHAR(45) NULL,
+  descripcion  VARCHAR(200) NULL,
   horario_estudiante_idhorario_estudiante INT NOT NULL,
   PRIMARY KEY (idmodulo),
   CONSTRAINT fk_modulo_horario_estudiante1 FOREIGN KEY (horario_estudiante_idhorario_estudiante) REFERENCES horario_estudiante (idhorario_estudiante)
@@ -124,9 +125,60 @@ CREATE TABLE IF NOT EXISTS horario_docente (
 );
 
 -- -----------------------------------------------------
--- OPERACIONES DE CONSULTA O MODIFICACION
+-- OPERACIONES DE INSERCIÓN
 -- -----------------------------------------------------
+
+-- INSERCIÓN perfil_estudiante
 INSERT INTO perfil_estudiante (foto_perfil, cedula, nombre, apellido, edad, direccion_domiciliaria, correo_electronico, telefono, nivel_educativo)
 	VALUES
-		('ruta_de_la_imagen.jpg', '123456789', 'Juan', 'Pérez', 25, 'Calle Principal 123', 'juan.perez@example.com', '1234567890', 'Universitario');
+		('ruta_de_la_imagen.jpg', '123456789', 'Juan', 'Pérez', 25, 'Calle Principal 123', 'estudiante@ug.edu.ec', '0987654111', 'Bachillerato');
 
+-- INSERCIÓN horario_estudiante
+INSERT INTO horario_estudiante (asignatura, lunes, martes, miercoles, jueves, viernes, sabado, domingo, perfil_estudiante_idperfil_estudiante)
+  VALUES 
+    ('MANTENIMIENTO DE COMPUTADORAS', '8:00 - 10:00', '-', '8:00 - 10:00', '-', '8:00 - 10:00', '-', '-', 1),
+    ('ROBOTICA', '-', '8:00 - 10:00', '-', '-', '8:00 - 10:00', '-', '10:00 - 12:00', 1),
+    ('DESARROLLO WEB', '-', '-', '-', '-', '-', '13:00 - 15:00', '13:00 - 15:00', 1),
+    ('INGLES', '-', '-', '13:00 - 15:00', '-', '13:00 - 15:00', '-', '-', 1),
+    ('CABLEADO ESTRUCTURADO', '-', '-', '-', '13:00 - 15:00', '-', '-', '15:00 - 18:00', 1);
+
+-- INSERCIÓN perfil_docente
+INSERT INTO perfil_docente (foto_perfil, cedula, nombre, apellido, edad, direccion_domiciliaria, correo_electronico, telefono)
+  VALUES 
+    ('ruta_de_la_imagen.jpg', '987654321', 'María', 'López', 35, 'Avenida Principal 456', 'profesor@ug.edu.ec', '0987654321');
+
+-- INSERCIÓN salario
+INSERT INTO salario (titulo, contrato, cantidad_sueldo, perfil_docente_idperfil_docente)
+  VALUES 
+    ('Fijo', 'Nombramiento', '2,100.00', 1);
+
+-- INSERCIÓN calificaciones (NO)
+INSERT INTO calificaciones (asignatura, modulo, nota_1p, nota_2p, promedio, perfil_docente_idperfil_docente, perfil_estudiante_idperfil_estudiante)
+  VALUES 
+    ('MANTENIMIENTO DE COMPUTADORAS', 'MODULO 1', 8, 7, '7.5', 1, 1),
+    ('ROBOTICA', 'MODULO 1', 7, 8, '7.5', 1, 1);
+
+-- INSERCIÓN modulo
+INSERT INTO modulo (nombre_modulo, descripcion, horario_estudiante_idhorario_estudiante)
+  VALUES 
+    ('Esta cursando el primer módulo', 'El plan de estudios de nuestro programa incluye una variedad de módulos diseñados para brindar a los estudiantes una formación integral en diversas áreas relevantes.', 1);
+
+-- INSERCIÓN horario_docente
+INSERT INTO horario_docente (asignatura, modulo, lunes, martes, miercoles, jueves, sabado, domingo, perfil_docente_idperfil_docente)
+  VALUES 
+    ('MANTENIMIENTO DE COMPUTADORAS', 'MODULO 1', '8:00 - 10:00', '-', '8:00 - 10:00', '-', '8:00 - 10:00', '-', 1),
+    ('ROBOTICA', 'MODULO 1', '-', '8:00 - 10:00', '-', '-', '8:00 - 10:00', '-', 1);
+
+-- -----------------------------------------------------
+-- OPERACIONES DE CONSULTA
+-- -----------------------------------------------------
+
+-- Consulta en la tabla perfil_estudiante por ID --
+-- SELECT * FROM perfil_estudiante WHERE idperfil_estudiante = 1;
+
+-- -----------------------------------------------------
+-- OPERACIONES DE MODIFICACION
+-- -----------------------------------------------------
+
+-- Modificación en la tabla perfil_estudiante por ID --
+-- UPDATE perfil_estudiante SET direccion_domiciliaria = 'Calle Secundaria 456' WHERE idperfil_estudiante = 1;

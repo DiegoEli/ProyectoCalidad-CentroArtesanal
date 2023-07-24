@@ -19,13 +19,13 @@
             <tbody class="table-group-divider">
                 <tr *ngFor="let horario_estudiante of horario_estudiantes | async">
                     <td>{{ obtenerNombreAsignatura(horario_estudiante.asignatura_idasignatura) }}</td>
-                    <th>{{ horario_estudiante.lunes }}</th>
-                    <th>{{ horario_estudiante.martes }}</th>
-                    <th>{{ horario_estudiante.miercoles }}</th>
-                    <th>{{ horario_estudiante.jueves }}</th>
-                    <th>{{ horario_estudiante.viernes }}</th>
-                    <th>{{ horario_estudiante.sabado }}</th>
-                    <th>{{ horario_estudiante.domingo }}</th>
+                    <td>{{ horario_estudiante.lunes }}</td>
+                    <td>{{ horario_estudiante.martes }}</td>
+                    <td>{{ horario_estudiante.miercoles }}</td>
+                    <td>{{ horario_estudiante.jueves }}</td>
+                    <td>{{ horario_estudiante.viernes }}</td>
+                    <td>{{ horario_estudiante.sabado }}</td>
+                    <td>{{ horario_estudiante.domingo }}</td>
                 </tr>
                 <!-- <tr>
                     <td scope="row"><strong>Mantenimiento de computadoras</strong></td>

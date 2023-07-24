@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,10 @@ import { ProfesoresPerfilComponent } from './components/centro-formacion/profeso
 import { ProfesoresSalarioComponent } from './components/centro-formacion/profesores-salario/profesores-salario.component';
 import { ProfesoresHorariosComponent } from './components/centro-formacion/profesores-horarios/profesores-horarios.component';
 import { ProfesoresAddCaliComponent } from './components/centro-formacion/profesores-add-cali/profesores-add-cali.component';
+import { CalificacionesService } from './shared/calificaciones.service';
+import { HorarioEstudianteService } from './shared/horario-estudiante.service';
+import { HorarioDocenteService } from './shared/horario-docente.service';
+import { AsignaturaService } from './shared/asignatura.service';
 
 
 @NgModule({
@@ -51,9 +56,15 @@ import { ProfesoresAddCaliComponent } from './components/centro-formacion/profes
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    CalificacionesService,
+    HorarioEstudianteService,
+    HorarioDocenteService,
+    AsignaturaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

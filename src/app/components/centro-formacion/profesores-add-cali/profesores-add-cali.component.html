@@ -1,61 +1,64 @@
 <div class="container mt-3">
     <div class="container table-responsive">
+
         <h1>Registro de Notas</h1>
-        <form>
+        <form (ngSubmit)="onSubmit()" #calificacionForm="ngForm">
             <div class="row container justify-content-center bg-light">
+
                 <div class="col-10">
                     <div class="form-group mt-3 mb-4">
-                        <label for="student-select" class="font-weight-bold h5 mb-2">Seleccionar Estudiante:</label>
-                        <select class="form-control" id="student-select" name="student" [(ngModel)]="estudiante">
-                            <option value="estudiante1">Estudiante 1</option>
-                            <option value="estudiante2">Estudiante 2</option>
-                            <option value="estudiante3">Estudiante 3</option>
-                            <!-- Agrega más opciones de estudiantes según tus necesidades -->
+                        <label for="estudiante" class="font-weight-bold h5 mb-2">Seleccionar Estudiante:</label>
+                        <select class="form-control" id="estudiante" name="estudiante" required [(ngModel)]="calificacion.perfil_estudiante_idperfil_estudiante">
+                            <option value="">Seleccionar</option>
+                            <!-- <option *ngFor="let perfil_estudiante of perfil_estudiantes" [value]="perfil_estudiante.idperfil_estudiante">{{ perfil_estudiante.nombre }}</option> -->
                         </select>
                     </div>
                 </div>
+
                 <div class="col-10">
                     <div class="form-group mb-4">
-                        <label for="modulo-select" class="font-weight-bold h5 mb-2">Seleccionar Módulo:</label>
-                        <select class="form-control" id="modulo-select" name="modulo" [(ngModel)]="modulo">
-                            <option value="modulo1">Módulo 1</option>
-                            <option value="modulo2">Módulo 2</option>
-                            <option value="modulo3">Módulo 3</option>
+                        <label for="modulo" class="font-weight-bold h5 mb-2">Seleccionar Módulo:</label>
+                        <select class="form-control" id="modulo" name="modulo" required [(ngModel)]="calificacion.modulo_idmodulo">
+                            <option value="">Seleccionar</option>
+                            <!-- <option *ngFor="let modulo of modulos" [value]="modulo.idmodulo">{{ modulo.nombre_modulo }}</option> -->
                         </select>
                     </div>
                 </div>
+
                 <div class="col-10">
                     <div class="form-group mb-4">
-                        <label for="asignatura-select" class="font-weight-bold h5 mb-2">Seleccionar Asignatura:</label>
-                        <select class="form-control" id="asignatura-select" name="asignatura" [(ngModel)]="asignatura">
-                            <option value="Mantenimiento de computadoras">Mantenimiento de computadoras</option>
-                            <option value="Cableado estructurado">Cableado estructurado</option>
+                        <label for="asignatura" class="font-weight-bold h5 mb-2">Seleccionar Asignatura:</label>
+                        <select class="form-control" id="asignatura" name="asignatura" required [(ngModel)]="calificacion.asignatura_idasignatura">
+                            <option value="">Seleccionar</option>
+                            <!-- <option *ngFor="let asignatura of asignaturas" [value]="asignatura.idasignatura">{{ asignatura.nombre_asignatura }}</option> -->
                         </select>
                     </div>
                 </div>
+
                 <div class="col-5">
                     <div class="form-group mb-4">
-                        <label for="parcial1-input" class="font-weight-bold h5 mb-2">Nota Primer Parcial:</label>
-                        <input type="number" class="form-control" id="parcial1-input" step="0.1" name="parcial1"
-                            [(ngModel)]="parcial1" (change)="calcularPromedio()">
+                        <label for="nota_1p" class="font-weight-bold h5 mb-2">Nota Primer Parcial:</label>
+                        <input type="text" class="form-control" id="nota_1p" step="0.1" name="nota_1p" required [(ngModel)]="calificacion.nota_1p" >
                     </div>
                 </div>
+
                 <div class="col-5">
                     <div class="form-group mb-4">
-                        <label for="parcial2-input" class="font-weight-bold h5 mb-2">Nota Segundo Parcial:</label>
-                        <input type="number" class="form-control" id="parcial2-input" step="0.1" name="parcial2"
-                            [(ngModel)]="parcial2" (change)="calcularPromedio()">
+                        <label for="nota_2p" class="font-weight-bold h5 mb-2">Nota Segundo Parcial:</label>
+                        <input type="text" class="form-control" id="nota_2p" step="0.1" name="nota_2p" required [(ngModel)]="calificacion.nota_2p" >
                     </div>
                 </div>
+
                 <div class="col-10">
-                    <button type="button" class="btn btn-primary w-100 mb-4 d-block"
-                        (click)="registrarCalificaciones()">Guardar Calificaciones</button>
+                    <button type="button" class="btn btn-primary w-100 mb-4 d-block" [disabled]="!calificacionForm.form.valid">Guardar Calificaciones</button>
                 </div>
+
             </div>
         </form>
 
         <h3>Calificaciones Registradas</h3>
         <table class="table table-striped table-custom-rounded mt-3">
+
             <thead>
                 <tr>
                     <th>Estudiante</th>
@@ -67,20 +70,23 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
+
             <tbody>
-                <tr *ngFor="let calificacion of calificaciones">
-                    <td>{{ calificacion.estudiante }}</td>
-                    <td>{{ calificacion.modulo }}</td>
-                    <td>{{ calificacion.asignatura }}</td>
-                    <td>{{ calificacion.parcial1 }}</td>
-                    <td>{{ calificacion.parcial2 }}</td>
-                    <td>{{ calificacion.promedio }}</td>
+                <tr *ngFor="let calificacion of calificaciones | async">
+                    <td>{{ calificacion.perfil_estudiante_idperfil_estudiante }}</td>
+                    <td>{{ calificacion.modulo_idmodulo }}</td>
+                    <td>{{ calificacion.asignatura_idasignatura }}</td>
+                    <td>{{ calificacion.nota_1p | number: '1.2-2' }}</td>
+                    <td>{{ calificacion.nota_2p | number: '1.2-2' }}</td>
+                    <td>{{ calificacion.promedio | number: '1.2-2' }}</td>
                     <td>
-                        <i class="bi bi-pencil-square"></i>
-                        <i class="bi bi-file-earmark-x-fill"></i>
+                        <i class="bi bi-pencil-square" [routerLink]="['/calificaciones/editar/', calificacion.idcalificaciones]"></i>
+                        <i class="bi bi-file-earmark-x-fill" (click)="borrarCalificacion(calificacion.idcalificaciones)"></i>
                     </td>
                 </tr>
             </tbody>
+
         </table>
+
     </div>
 </div>

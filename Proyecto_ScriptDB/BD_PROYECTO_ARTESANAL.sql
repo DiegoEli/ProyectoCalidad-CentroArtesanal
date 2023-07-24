@@ -1,13 +1,15 @@
 -- -----------------------------------------------------
 -- Schema BD_Centro-Artesanal-UG
 -- -----------------------------------------------------
+DROP DATABASE IF EXISTS BD_Centro_Artesanal_UG;
+
 CREATE SCHEMA IF NOT EXISTS BD_Centro_Artesanal_UG;
-USE BD_Centro_Artesanal_UG ;
+USE BD_Centro_Artesanal_UG;
 
 -- -----------------------------------------------------
 -- Table perfil_estudiante
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS perfil_estudiante ;
+DROP TABLE IF EXISTS perfil_estudiante;
 
 CREATE TABLE IF NOT EXISTS perfil_estudiante (
   idperfil_estudiante INT NOT NULL AUTO_INCREMENT,
@@ -21,38 +23,35 @@ CREATE TABLE IF NOT EXISTS perfil_estudiante (
   telefono VARCHAR(15) NULL,
   nivel_educativo VARCHAR(45) NULL,
   PRIMARY KEY (idperfil_estudiante)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table modulo
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS modulo ;
+DROP TABLE IF EXISTS modulo;
 
 CREATE TABLE IF NOT EXISTS modulo (
   idmodulo INT NOT NULL AUTO_INCREMENT,
   nombre_modulo VARCHAR(45) NULL,
   descripcion VARCHAR(300) NULL,
   PRIMARY KEY (idmodulo)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table asignatura
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS asignatura ;
+DROP TABLE IF EXISTS asignatura;
 
 CREATE TABLE IF NOT EXISTS asignatura (
   idasignatura INT NOT NULL AUTO_INCREMENT,
   nombre_asignatura VARCHAR(45) NOT NULL,
   PRIMARY KEY (idasignatura)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table horario_estudiante
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS horario_estudiante ;
+DROP TABLE IF EXISTS horario_estudiante;
 
 CREATE TABLE IF NOT EXISTS horario_estudiante (
   idhorario_estudiante INT NOT NULL AUTO_INCREMENT,
@@ -70,13 +69,12 @@ CREATE TABLE IF NOT EXISTS horario_estudiante (
   CONSTRAINT fk_horario_estudiante_perfil_estudiante1 FOREIGN KEY (perfil_estudiante_idperfil_estudiante) REFERENCES perfil_estudiante (idperfil_estudiante),
   CONSTRAINT fk_horario_estudiante_modulo1 FOREIGN KEY (modulo_idmodulo)REFERENCES modulo (idmodulo),
   CONSTRAINT fk_horario_estudiante_asignatura1 FOREIGN KEY (asignatura_idasignatura) REFERENCES asignatura (idasignatura)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table perfil_docente
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS perfil_docente ;
+DROP TABLE IF EXISTS perfil_docente;
 
 CREATE TABLE IF NOT EXISTS perfil_docente (
   idperfil_docente INT NOT NULL AUTO_INCREMENT,
@@ -89,13 +87,12 @@ CREATE TABLE IF NOT EXISTS perfil_docente (
   correo_electronico VARCHAR(45) NULL,
   telefono VARCHAR(45) NULL,
   PRIMARY KEY (idperfil_docente)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table salario
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS salario ;
+DROP TABLE IF EXISTS salario;
 
 CREATE TABLE IF NOT EXISTS salario (
   idsalario INT NOT NULL AUTO_INCREMENT,
@@ -105,13 +102,12 @@ CREATE TABLE IF NOT EXISTS salario (
   perfil_docente_idperfil_docente INT NOT NULL,
   PRIMARY KEY (idsalario),
   CONSTRAINT fk_salario_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table calificaciones
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS calificaciones ;
+DROP TABLE IF EXISTS calificaciones;
 
 CREATE TABLE IF NOT EXISTS calificaciones (
   idcalificaciones INT NOT NULL AUTO_INCREMENT,
@@ -127,13 +123,12 @@ CREATE TABLE IF NOT EXISTS calificaciones (
   CONSTRAINT fk_calificaciones_perfil_estudiante1 FOREIGN KEY (perfil_estudiante_idperfil_estudiante) REFERENCES perfil_estudiante (idperfil_estudiante),
   CONSTRAINT fk_calificaciones_modulo1 FOREIGN KEY (modulo_idmodulo) REFERENCES modulo (idmodulo),
   CONSTRAINT fk_calificaciones_asignatura1 FOREIGN KEY (asignatura_idasignatura) REFERENCES asignatura (idasignatura)
-  );
-
+);
 
 -- -----------------------------------------------------
 -- Table horario_docente
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS horario_docente ;
+DROP TABLE IF EXISTS horario_docente;
 
 CREATE TABLE IF NOT EXISTS horario_docente (
   idhorario_docente INT NOT NULL AUTO_INCREMENT,
@@ -151,7 +146,7 @@ CREATE TABLE IF NOT EXISTS horario_docente (
   CONSTRAINT fk_horario_docente_perfil_docente1 FOREIGN KEY (perfil_docente_idperfil_docente) REFERENCES perfil_docente (idperfil_docente),
   CONSTRAINT fk_horario_docente_modulo1 FOREIGN KEY (modulo_idmodulo) REFERENCES modulo (idmodulo),
   CONSTRAINT fk_horario_docente_asignatura1 FOREIGN KEY (asignatura_idasignatura) REFERENCES asignatura (idasignatura)
-  );
+);
 
 
 
@@ -173,7 +168,7 @@ INSERT INTO perfil_docente (foto_perfil, cedula, nombre, apellido, edad, direcci
 
 -- Inserción en la tabla 'salario'
 INSERT INTO salario (titulo, contrato, cantidad_sueldo, perfil_docente_idperfil_docente) 
-	VALUES 
+	VALUES
 		('Fijo', 'Nombramiento', '2,100.00', 1);        
 
 
@@ -187,10 +182,10 @@ INSERT INTO modulo (nombre_modulo, descripcion)
 INSERT INTO asignatura (nombre_asignatura) 
 	VALUES
 		('MANTENIMIENTO DE COMPUTADORAS'),
-        ('ROBOTICA'),
-        ('DESARROLLO WEB'),
-        ('INGLES'),
-        ('CABLEADO ESTRUCTURADO');
+		('ROBOTICA'),
+		('DESARROLLO WEB'),
+		('INGLES'),
+		('CABLEADO ESTRUCTURADO');
 
 
 -- Inserción en la tabla 'horario_estudiante'
@@ -198,26 +193,26 @@ INSERT INTO horario_estudiante (lunes, martes, miercoles, jueves, viernes, sabad
 	VALUES
 		('07:00 - 10:00', '-', '-', '-', '07:00 - 10:00', '-', '-', 1, 1, 1), -- Horario del estudiante para MANTENIMIENTO DE COMPUTADORAS (asignatura_idasignatura = 1) y el módulo 1 (modulo_idmodulo = 1)
 		('-', '-', '10:00 - 12:00', '-', '10:00 - 12:00', '-', '-', 1, 1, 2), -- Horario del estudiante para ROBOTICA (asignatura_idasignatura = 2) y el módulo 1 (modulo_idmodulo = 1)
-        ('-', '12:00 - 14:00', '-', '-', '-', '12:00 - 14:00', '-', 1, 1, 3), -- Horario del estudiante para DESARROLLO WEB (asignatura_idasignatura = 3) y el módulo 1 (modulo_idmodulo = 1)
-        ('-', '-', '-', '-', '14:00 - 16:00', '14:00 - 16:00', '-', 1, 1, 4), -- Horario del estudiante para INGLES (asignatura_idasignatura = 4) y el módulo 1 (modulo_idmodulo = 1)
-        ('-', '-', '-', '-', '-', '16:00 - 18:00', '16:00 - 18:00', 1, 1, 5); -- Horario del estudiante para CABLEADO ESTRUCTURADO (asignatura_idasignatura = 5) y el módulo 1 (modulo_idmodulo = 1)
+		('-', '12:00 - 14:00', '-', '-', '-', '12:00 - 14:00', '-', 1, 1, 3), -- Horario del estudiante para DESARROLLO WEB (asignatura_idasignatura = 3) y el módulo 1 (modulo_idmodulo = 1)
+		('-', '-', '-', '-', '14:00 - 16:00', '14:00 - 16:00', '-', 1, 1, 4), -- Horario del estudiante para INGLES (asignatura_idasignatura = 4) y el módulo 1 (modulo_idmodulo = 1)
+		('-', '-', '-', '-', '-', '16:00 - 18:00', '16:00 - 18:00', 1, 1, 5); -- Horario del estudiante para CABLEADO ESTRUCTURADO (asignatura_idasignatura = 5) y el módulo 1 (modulo_idmodulo = 1)
 
 
 -- Inserción en la tabla 'calificaciones'
-INSERT INTO calificaciones (nota_1p, nota_2p, promedio, perfil_docente_idperfil_docente, perfil_estudiante_idperfil_estudiante, modulo_idmodulo, asignatura_idasignatura) 
+INSERT INTO calificaciones (nota_1p, nota_2p, promedio, perfil_docente_idperfil_docente, perfil_estudiante_idperfil_estudiante, modulo_idmodulo, asignatura_idasignatura)
 	VALUES
 		(8.5, 7.8, 8.15, 1, 1, 1, 1), -- Calificaciones para MANTENIMIENTO DE COMPUTADORAS (asignatura_idasignatura = 1) y el módulo 1 (modulo_idmodulo = 1)
-        (9.0, 8.7, 8.85, 1, 1, 1, 2), -- Calificaciones para ROBOTICA (asignatura_idasignatura = 2) y el módulo 1 (modulo_idmodulo = 1)
-        (7.0, 7.0, 7.0, 1, 1, 1, 3), -- Calificaciones para DESARROLLO WEB (asignatura_idasignatura = 3) y el módulo 1 (modulo_idmodulo = 1)
-        (8.0, 8.0, 8.0, 1, 1, 1, 4), -- Calificaciones para INGLES (asignatura_idasignatura = 4) y el módulo 1 (modulo_idmodulo = 1)
-        (9.0, 9.0, 9.0, 1, 1, 1, 5); -- Calificaciones para CABLEADO ESTRUCTURADO (asignatura_idasignatura = 5) y el módulo 1 (modulo_idmodulo = 1)
+		(9.0, 8.7, 8.85, 1, 1, 1, 2), -- Calificaciones para ROBOTICA (asignatura_idasignatura = 2) y el módulo 1 (modulo_idmodulo = 1)
+		(7.0, 7.0, 7.0, 1, 1, 1, 3), -- Calificaciones para DESARROLLO WEB (asignatura_idasignatura = 3) y el módulo 1 (modulo_idmodulo = 1)
+		(8.0, 8.0, 8.0, 1, 1, 1, 4), -- Calificaciones para INGLES (asignatura_idasignatura = 4) y el módulo 1 (modulo_idmodulo = 1)
+		(9.0, 9.0, 9.0, 1, 1, 1, 5); -- Calificaciones para CABLEADO ESTRUCTURADO (asignatura_idasignatura = 5) y el módulo 1 (modulo_idmodulo = 1)
 
 
 -- Inserción en la tabla 'horario_docente'
-INSERT INTO horario_docente (lunes, martes, miercoles, jueves, viernes ,sabado, domingo, perfil_docente_idperfil_docente, modulo_idmodulo, asignatura_idasignatura) 
+INSERT INTO horario_docente (lunes, martes, miercoles, jueves, viernes ,sabado, domingo, perfil_docente_idperfil_docente, modulo_idmodulo, asignatura_idasignatura)
 	VALUES
-		('8:00-10:00', '-', '8:00-10:00', '-', '-', '-', '-', 1, 1, 1), -- Horario del docente para MANTENIMIENTO DE COMPUTADORAS (asignatura_idasignatura = 1)
-        ('-', '10:00-12:00', '-', '10:00-12:00', '-', '-', '-', 1, 1, 2); -- Horario del docente para ROBOTICA (asignatura_idasignatura = 2)
+		('08:00 - 10:00', '-', '08:00 - 10:00', '-', '-', '-', '-', 1, 1, 1), -- Horario del docente para MANTENIMIENTO DE COMPUTADORAS (asignatura_idasignatura = 1)
+		('-', '10:00 - 12:00', '-', '10:00 - 12:00', '-', '-', '-', 1, 1, 2); -- Horario del docente para ROBOTICA (asignatura_idasignatura = 2)
 
 
 

@@ -2,6 +2,7 @@
     <div class="container table-responsive">
         <h1>Horario para sus clases</h1>
         <table class="table table-striped table-custom-rounded mt-3">
+
             <thead class="table">
                 <tr>
                     <th scope="col">Asignatura</th>
@@ -15,8 +16,20 @@
                     <th scope="col">Domingo</th>
                 </tr>
             </thead>
+
             <tbody class="table-group-divider">
-                <tr>
+                <tr *ngFor="let horario_docente of horario_docentes | async" >
+                    <td>{{ horario_docente.asignatura_idasignatura }}</td>
+                    <td>{{ horario_docente.modulo_idmodulo }}</td>
+                    <td>{{ horario_docente.lunes }}</td>
+                    <td>{{ horario_docente.martes }}</td>
+                    <td>{{ horario_docente.miercoles }}</td>
+                    <td>{{ horario_docente.jueves }}</td>
+                    <td>{{ horario_docente.viernes }}</td>
+                    <td>{{ horario_docente.sabado }}</td>
+                    <td>{{ horario_docente.domingo }}</td>
+                </tr>
+                <!-- <tr>
                     <td scope="row"><strong>Mantenimiento de computadoras</strong></td>
                     <td scope="row">Módulo 1</td>
                     <td scope="row">10:00 - 12:00</td>
@@ -26,19 +39,9 @@
                     <td scope="row">-</td>
                     <td scope="row">-</td>
                     <td scope="row">-</td>
-                </tr>
-                <tr>
-                    <td scope="row"><strong>Cableado estructurado</strong></td>
-                    <td scope="row">Módulo 1</td>
-                    <td scope="row">-</td>
-                    <td scope="row">12:00 - 14:00</td>
-                    <td scope="row">-</td>
-                    <td scope="row">-</td>
-                    <td scope="row">10:00 - 12:00</td>
-                    <td scope="row">-</td>
-                    <td scope="row">-</td>
-                </tr>
+                </tr> -->
             </tbody>
+
         </table>
     </div>
 </div>

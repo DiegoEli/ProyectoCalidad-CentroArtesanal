@@ -38,14 +38,14 @@
                 <div class="col-5">
                     <div class="form-group mb-4">
                         <label for="nota_1p" class="font-weight-bold h5 mb-2">Nota Primer Parcial:</label>
-                        <input type="text" class="form-control" id="nota_1p" step="0.1" name="nota_1p" required [(ngModel)]="calificacion.nota_1p" >
+                        <input type="text" class="form-control" id="nota_1p" step="0.1" name="nota_1p" required [(ngModel)]="calificacion.nota_1p" (change)="calcularPromedio()">
                     </div>
                 </div>
 
                 <div class="col-5">
                     <div class="form-group mb-4">
                         <label for="nota_2p" class="font-weight-bold h5 mb-2">Nota Segundo Parcial:</label>
-                        <input type="text" class="form-control" id="nota_2p" step="0.1" name="nota_2p" required [(ngModel)]="calificacion.nota_2p" >
+                        <input type="text" class="form-control" id="nota_2p" step="0.1" name="nota_2p" required [(ngModel)]="calificacion.nota_2p" (change)="calcularPromedio()">
                     </div>
                 </div>
 

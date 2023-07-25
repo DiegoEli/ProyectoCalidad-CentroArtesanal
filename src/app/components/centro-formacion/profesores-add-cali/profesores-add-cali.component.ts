@@ -121,6 +121,13 @@ export class ProfesoresAddCaliComponent implements OnInit {
     return modulo ? modulo.nombre_modulo : '¡Modulo no encontrado!';
   }
 
+  calcularPromedio() {
+    const nota1 = parseFloat(this.calificacion.nota_1p);
+    const nota2 = parseFloat(this.calificacion.nota_2p);
+    const promedio = (nota1 + nota2) / 2;
+    this.calificacion.promedio = promedio.toFixed(2);
+  }
+
   borrarCalificacion(id: string) {
     if (confirm('¿Estás seguro de eliminar?')) {
       this.calificacionesService.borrarCalificacion(id).subscribe(data => {

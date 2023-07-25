@@ -19,8 +19,8 @@
 
             <tbody class="table-group-divider">
                 <tr *ngFor="let horario_docente of horario_docentes | async" >
-                    <td>{{ horario_docente.asignatura_idasignatura }}</td>
-                    <td>{{ horario_docente.modulo_idmodulo }}</td>
+                    <td>{{ obtenerNombreAsignatura(horario_docente.asignatura_idasignatura) }}</td>
+                    <td>{{ obtenerNombreModulo(horario_docente.modulo_idmodulo) }}</td>
                     <td>{{ horario_docente.lunes }}</td>
                     <td>{{ horario_docente.martes }}</td>
                     <td>{{ horario_docente.miercoles }}</td>

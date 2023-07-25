@@ -11,6 +11,7 @@ import { EstudiantesModuloComponent } from './components/centro-formacion/estudi
 import { EstudiantesNotasComponent } from './components/centro-formacion/estudiantes-notas/estudiantes-notas.component';
 import { EstudiantesPerfilComponent } from './components/centro-formacion/estudiantes-perfil/estudiantes-perfil.component';
 import { ProfesoresComponent } from './components/centro-formacion/profesores/profesores.component';
+import { ProfesoresAddCaliComponent } from './components/centro-formacion/profesores-add-cali/profesores-add-cali.component';
 
 const routes: Routes = [
   { path: '', redirectTo:  'home', pathMatch: 'full'},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'estudiantes-horarios', component: EstudiantesHorariosComponent},
   { path: 'estudiantes-modulo', component: EstudiantesModuloComponent},
   { path: 'estudiantes-notas', component: EstudiantesNotasComponent},
+  { path: 'calificaciones/editar/:id', component: ProfesoresAddCaliComponent},
   { path: 'estudiantes-perfil', component: EstudiantesPerfilComponent},
   { path: 'profesores', component: ProfesoresComponent},
   { path: '**', redirectTo: 'home', pathMatch: 'full'}

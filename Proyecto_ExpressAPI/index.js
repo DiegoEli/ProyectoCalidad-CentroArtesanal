@@ -403,7 +403,7 @@ app.get('/perfil_docentes/:id', (req, res) => {
 });
 
 app.post('/perfil_docentes/agregar', (req, res) => {
-    const perfilEstudiante = {
+    const perfilDocente = {
         foto_perfil: req.body.foto_perfil,
         cedula: req.body.cedula,
         nombre: req.body.nombre,
@@ -415,7 +415,7 @@ app.post('/perfil_docentes/agregar', (req, res) => {
     };
 
     const query = `INSERT INTO perfil_docente SET ?`;
-    conexion.query(query, perfilEstudiante, (error) => {
+    conexion.query(query, perfilDocente, (error) => {
         if (error) return console.error(error.message);
 
         res.json(`Se insertó correctamente el perfil_docente`);
@@ -608,9 +608,9 @@ app.put('/calificaciones/actualizar/:id', (req, res) => {
         nota_2p='${nota_2p}',
         promedio='${promedio}',
         perfil_docente_idperfil_docente='${perfil_docente_idperfil_docente}',
-        perfil_estudiante_idperfil_estudiante='${perfil_estudiante_idperfil_estudiante}'
+        perfil_estudiante_idperfil_estudiante='${perfil_estudiante_idperfil_estudiante}',
         modulo_idmodulo='${modulo_idmodulo}',
-        asignatura_idasignatura='${asignatura_idasignatura}',
+        asignatura_idasignatura='${asignatura_idasignatura}'
         WHERE idcalificaciones='${id}';`;
 
     conexion.query(query, (error) => {

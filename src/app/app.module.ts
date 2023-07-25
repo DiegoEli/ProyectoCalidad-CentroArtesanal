@@ -29,6 +29,9 @@ import { CalificacionesService } from './shared/calificaciones.service';
 import { HorarioEstudianteService } from './shared/horario-estudiante.service';
 import { HorarioDocenteService } from './shared/horario-docente.service';
 import { AsignaturaService } from './shared/asignatura.service';
+import { ModuloService } from './shared/modulo.service';
+import { PerfilEstudianteService } from './shared/perfil-estudiante.service';
+import { PerfilDocenteService } from './shared/perfil-docente.service';
 
 
 @NgModule({
@@ -63,7 +66,10 @@ import { AsignaturaService } from './shared/asignatura.service';
     CalificacionesService,
     HorarioEstudianteService,
     HorarioDocenteService,
-    AsignaturaService
+    AsignaturaService,
+    ModuloService,
+    PerfilEstudianteService,
+    PerfilDocenteService
   ],
   bootstrap: [AppComponent]
 })

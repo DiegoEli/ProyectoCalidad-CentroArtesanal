@@ -10,7 +10,7 @@
                         <label for="estudiante" class="font-weight-bold h5 mb-2">Seleccionar Estudiante:</label>
                         <select class="form-control" id="estudiante" name="estudiante" required [(ngModel)]="calificacion.perfil_estudiante_idperfil_estudiante">
                             <option value="">Seleccionar</option>
-                            <!-- <option *ngFor="let perfil_estudiante of perfil_estudiantes" [value]="perfil_estudiante.idperfil_estudiante">{{ perfil_estudiante.nombre }}</option> -->
+                            <option *ngFor="let perfil_estudiante of perfil_estudiantes" [value]="perfil_estudiante.idperfil_estudiante">{{ perfil_estudiante.nombre }}</option>
                         </select>
                     </div>
                 </div>
@@ -19,8 +19,8 @@
                     <div class="form-group mb-4">
                         <label for="modulo" class="font-weight-bold h5 mb-2">Seleccionar Módulo:</label>
                         <select class="form-control" id="modulo" name="modulo" required [(ngModel)]="calificacion.modulo_idmodulo">
-                            <option value="">Seleccionar</option>
-                            <!-- <option *ngFor="let modulo of modulos" [value]="modulo.idmodulo">{{ modulo.nombre_modulo }}</option> -->
+                            <option value="">Seleccionar..</option>
+                            <option *ngFor="let modulo of modulos" [value]="modulo.idmodulo">{{ modulo.nombre_modulo }}</option>
                         </select>
                     </div>
                 </div>
@@ -29,8 +29,8 @@
                     <div class="form-group mb-4">
                         <label for="asignatura" class="font-weight-bold h5 mb-2">Seleccionar Asignatura:</label>
                         <select class="form-control" id="asignatura" name="asignatura" required [(ngModel)]="calificacion.asignatura_idasignatura">
-                            <option value="">Seleccionar</option>
-                            <!-- <option *ngFor="let asignatura of asignaturas" [value]="asignatura.idasignatura">{{ asignatura.nombre_asignatura }}</option> -->
+                            <option value="">Seleccionar..</option>
+                            <option *ngFor="let asignatura of asignaturas" [value]="asignatura.idasignatura">{{ asignatura.nombre_asignatura }}</option>
                         </select>
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                 </div>
 
                 <div class="col-10">
-                    <button type="button" class="btn btn-primary w-100 mb-4 d-block" [disabled]="!calificacionForm.form.valid">Guardar Calificaciones</button>
+                    <button type="submit" class="btn btn-primary w-100 mb-4 d-block" [disabled]="!calificacionForm.form.valid">Guardar Calificaciones</button>
                 </div>
 
             </div>
@@ -73,9 +73,9 @@
 
             <tbody>
                 <tr *ngFor="let calificacion of calificaciones | async">
-                    <td>{{ calificacion.perfil_estudiante_idperfil_estudiante }}</td>
-                    <td>{{ calificacion.modulo_idmodulo }}</td>
-                    <td>{{ calificacion.asignatura_idasignatura }}</td>
+                    <td>{{ obtenerNombrePerfilEstudiante(calificacion.perfil_estudiante_idperfil_estudiante) }}</td>
+                    <td>{{ obtenerNombreModulo(calificacion.modulo_idmodulo) }}</td>
+                    <td>{{ obtenerNombreAsignatura(calificacion.asignatura_idasignatura) }}</td>
                     <td>{{ calificacion.nota_1p | number: '1.2-2' }}</td>
                     <td>{{ calificacion.nota_2p | number: '1.2-2' }}</td>
                     <td>{{ calificacion.promedio | number: '1.2-2' }}</td>

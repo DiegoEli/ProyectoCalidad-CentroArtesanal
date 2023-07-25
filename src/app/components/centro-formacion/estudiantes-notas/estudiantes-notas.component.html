@@ -16,7 +16,7 @@
             <tbody>
                 <tr *ngFor="let calificacion of calificaciones | async" >
                     <td>{{ obtenerNombreAsignatura(calificacion.asignatura_idasignatura) }}</td>
-                    <td>{{ calificacion.modulo_idmodulo }}</td>
+                    <td>{{ obtenerNombreModulo(calificacion.modulo_idmodulo) }}</td>
                     <td>{{ calificacion.nota_1p | number: '1.2-2' }}</td>
                     <td>{{ calificacion.nota_2p | number: '1.2-2' }}</td>
                     <td>{{ calificacion.promedio | number: '1.2-2' }}</td>

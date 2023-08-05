@@ -1,7 +1,12 @@
 <div class="container mt-3">
     <div class="row">
+
         <h1>Asuntos de Becas</h1>
-        <p>Para asuntos de becas, el estudiante presentará su cartilla de notas. Por lo cual se realizarán los siguientes descuentos:</p>
+        <p>Para asuntos de becas, el estudiante presentará su cartilla de notas.
+            Por lo cual se realizarán los siguientes descuentos:
+        </p>
+
+        <!-- Contendor del descuento -->
         <div class="col-sm-6">
             <div class="card mt-2 mb-4">
                 <div class="card-body">
@@ -17,18 +22,12 @@
                         </thead>
 
                         <tbody>
-                            <tr>
-                                <td>10.00</td>
-                                <td>30%</td>
-                            </tr>
-                            <tr>
-                                <td>9.50</td>
-                                <td>20%</td>
-                            </tr>
-                            <tr>
-                                <td>9.00</td>
-                                <td>10%</td>
-                            </tr>
+                            <ng-container *ngFor="let desc of descuentos">
+                                <tr [ngClass]="{ 'table-primary': descuento === desc.descuento }">
+                                    <td>{{ desc.min | number: '1.2-2' }}</td>
+                                    <td>{{ desc.descuento }}%</td>
+                                </tr>
+                            </ng-container>
                         </tbody>
 
                     </table>
@@ -36,22 +35,36 @@
                 </div>
             </div>
         </div>
+
+        <!-- Contenedor del promedio -->
         <div class="col-sm-6 col-12">
             <div class="card mt-2 mb-4">
                 <div class="card-body">
+
                     <h5 class="card-title">Promedio General</h5>
                     <div class="d-flex justify-content-center align-items-center" style="height: 180px;">
-                        <h1 class="display-1">8.00</h1> <!-- Aquí se mostrará el promedio general -->
+                        <h1 class="display-1">{{ promedioGeneral }}</h1>
                     </div>
+
                 </div>
             </div>
         </div>
+
         <!--Contenedor del aviso-->
         <div class="col">
-            <!--Aqui aviso-->
-            <div class="alert alert-warning d-flex align-items-center justify-content-center" role="alert">
-                Usted no aplica ningún tipo de descuento!
+            <div class="alert d-flex align-items-center justify-content-center"
+                [ngClass]="{ 'alert-success': descuento > 0, 'alert-warning': descuento === 0 }" role="alert">
+
+                <ng-container *ngIf="descuento > 0; else noDiscount">
+                    ¡Usted aplica un descuento del {{ descuento }}%!
+                </ng-container>
+
+                <ng-template #noDiscount>
+                    ¡Usted no aplica ningún tipo de descuento!
+                </ng-template>
+
             </div>
         </div>
+
     </div>
 </div>

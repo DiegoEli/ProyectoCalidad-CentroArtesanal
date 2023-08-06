@@ -1,5 +1,6 @@
 <div class="container mt-3">
     <div class="row flex-wrap align-content">
+        
         <h1>Asignación de salarios</h1>
         <p>Para asignar un salario dependerá del título universitario y del tipo de contrato que tenga con el Centro
             Artesanal UG mediante las siguientes métricas:</p>
@@ -18,24 +19,26 @@
                         </thead>
 
                         <tbody>
-                            <tr class="align-middle">
-                                <td>60% del docente titular</td>
-                                <td>Rotativo</td>
-                                <td>Tercer nivel <strong>(hasta que se capacite en un master afín a las materias del
-                                        Centro de Formación)</strong></td>
-                            </tr>
-                            <tr class="align-middle table-primary">
-                                <td>80% del docente ocasional</td>
-                                <td>Fijo</td>
-                                <td>Cuarto nivel sin afinidad <strong>(hasta que se capacite en un master afín y si es
-                                        afín el 100%.)</strong></td>
-                            </tr>
+                            <ng-container *ngFor="let titul of titulosUniversitarios let i = index" class="align-middle">
+                                <tr [ngClass]="{ 'table-primary': turnoAplicado === titul.turno }">
+                                    <td>
+                                        {{ titul.remuneracion }}% del docente 
+                                        {{ i === 0 ? titul.textAdd : titul.textAdd }}
+                                    </td>
+                                    <td>{{ titul.turno }}</td>
+                                    <td>
+                                        {{ titul.titulo }} <strong>(hasta que se capacite en un master afín 
+                                        {{ i === 0 ? titul.textAdd2 : titul.textAdd2 }})</strong>
+                                    </td>
+                                </tr>
+                            </ng-container>
                         </tbody>
 
                     </table>
                 </div>
             </div>
         </div>
+
         <div class="col-6 col-sm-12 col-md-6">
             <div class="card mt-2 mb-4">
                 <div class="card-body table-responsive">
@@ -51,149 +54,43 @@
                         </thead>
 
                         <tbody>
-                            <tr class="align-middle">
-                                <td>Contrato u ocasional</td>
-                                <td>Medio</td>
-                                <td>$1,000.00</td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>Contrato u ocasional</td>
-                                <td>Completo</td>
-                                <td>$2,100.00</td>
-                            </tr>
-                            <tr class="align-middle">
-                                <td>Nombramiento</td>
-                                <td>Medio</td>
-                                <td>$1,600.00</td>
-                            </tr>
-                            <tr class="align-middle table-primary">
-                                <td>Nombramiento</td>
-                                <td>Completo</td>
-                                <td>$3,200.00</td>
-                            </tr>
+                            <ng-container *ngFor="let contr of contratosCentroFormacion" class="align-middle">
+                                <tr [ngClass]="{'table-primary': salarioAplicado === contr.pagoFinal }">
+                                    <td>{{ contr.contrato }}</td>
+                                    <td>{{ contr.tiempo }}</td>
+                                    <td>${{ contr.pagoFinal }}</td>
+                                </tr>
+                            </ng-container>
                         </tbody>
 
                     </table>
                 </div>
             </div>
         </div>
+
     </div>
+
     <div class="row">
+
         <div class="col-sm-6">
             <div class="card mt-2 mb-4">
                 <div class="card-body table-responsive">
-                    <h5 class="card-title">Sueldo</h5>
-                    <div class="d-flex justify-content-center align-items-center" style="height: 180px;">
-                        <h1 class="display-1">$2,100.00</h1> <!-- Aquí se mostrará el promedio general -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="mt-2 mb-4">
-                <div class="alert alert-info d-flex align-items-center justify-content-center" role="alert"
-                    style="height: 50px;">
-                    Usted aplica con el siguiente salario!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <div class="container mt-3">
-    <div class="row flex-wrap align-content">
-        <h1>Asignación de salarios</h1>
-        <p>Para asignar un salario dependerá del título universitario y del tipo de contrato que tenga con el Centro
-            Artesanal UG mediante las siguientes métricas:</p>
-        <div class="col-6 col-sm-12 col-md-6">
-            <div class="card mt-2 mb-4">
-                <div class="card-body table-responsive">
-                    <h5 class="card-title">Título universitario</h5>
-                    <table class="table">
-
-                        <thead>
-                            <tr>
-                                <th>Remuneración</th>
-                                <th>Turnos</th>
-                                <th>Título universitario</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr *ngFor="let salario of titulosUniversitarios" class="align-middle"
-                                [ngClass]="{'table-primary': salario.titulo === 'Fijo'}">
-                                <td>{{ salario.titulo }}</td>
-                                <td>{{ salario.titulo }}</td>
-                                <td>{{ salario.cantidad_sueldo }}
-                                    <strong>(hasta que se capacite en un master afín y si es afín el 100%.)</strong>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-sm-12 col-md-6">
-            <div class="card mt-2 mb-4">
-                <div class="card-body table-responsive">
-                    <h5 class="card-title">Contrato con el Centro de Formación</h5>
-                    <table class="table">
-
-                        <thead>
-                            <tr>
-                                <th>Contrato</th>
-                                <th>Tiempo</th>
-                                <th>Remuneración</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr *ngFor="let salario of contratosCentroFormacion" class="align-middle"
-                                [ngClass]="{'table-primary': salario.contrato === 'Nombramiento'}">
-                                <td>{{ salario.contrato }}</td>
-                                <td>{{ salario.contrato }}</td>
-                                <td>${{ salario.cantidad_sueldo }}</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <div class="card mt-2 mb-4">
-                <div class="card-body table-responsive">
-                    <h5 class="card-title">Sueldo</h5>
+                    <h5 class="card-title">Sueldo mensual</h5>
                     <div class="d-flex justify-content-center align-items-center" style="height: 180px;">
                         <h1 class="display-1">${{ salarioAplicado }}</h1>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="col-sm-6">
             <div class="mt-2 mb-4">
                 <div class="alert alert-info d-flex align-items-center justify-content-center" role="alert"
                     style="height: 50px;">
-                    Usted aplica con el siguiente salario: ${{ salarioAplicado }}
+                    ¡Usted aplica con el siguiente salario!
                 </div>
             </div>
         </div>
+
     </div>
-</div> -->
+</div>

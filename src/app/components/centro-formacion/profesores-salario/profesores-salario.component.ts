@@ -7,41 +7,66 @@ import { SalarioService } from 'src/app/shared/salario.service';
   templateUrl: './profesores-salario.component.html',
   styleUrls: ['./profesores-salario.component.css']
 })
-export class ProfesoresSalarioComponent implements OnInit{
+export class ProfesoresSalarioComponent implements OnInit {
 
-  titulosUniversitarios: SalarioModel[] = [];
-  contratosCentroFormacion: SalarioModel[] = [];
+  salarios: SalarioModel[] = [];
+  turnoAplicado: string = '';
+  salarioAplicado: string = '0.00';
+  tiempo: string = 'Completo';
 
-  salarioAplicado: string = '';
+  titulosUniversitarios = [
+    { remuneracion: 60, turno: 'Rotativo', titulo: 'Tercer nivel',
+      textAdd: 'titular', textAdd2: 'a las materias del Centro de Formación' },
+    { remuneracion: 80, turno: 'Fijo', titulo: 'Cuarto nivel sin afinidad',
+      textAdd: 'ocasional',textAdd2: 'y si es afín el 100%.' }
+  ];
+
+  contratosCentroFormacion = [
+    { contrato: 'Contrato u ocasional', tiempo: 'Medio', pagoFinal: '1,000.00' },
+    { contrato: 'Contrato u ocasional', tiempo: 'Completo', pagoFinal: '2,100.00' },
+    { contrato: 'Nombramiento', tiempo: 'Medio', pagoFinal: '1,600.00' },
+    { contrato: 'Nombramiento', tiempo: 'Completo', pagoFinal: '3,200.00' }
+  ];
 
   constructor(
     private salarioService: SalarioService
   ) { }
 
   ngOnInit() {
-    // Aquí obtenemos los datos del servicio y los asignamos a los arreglos correspondientes
-      this.salarioService.obtenerSalarios().subscribe((salarios: SalarioModel[]) => {
-      this.titulosUniversitarios = salarios.filter((salario) => salario.titulo === 'Fijo');
-      this.contratosCentroFormacion = salarios.filter((salario) => salario.contrato === 'Nombramiento');
-      this.calcularSalarioAplicado(); // Calculamos el salario aplicado
-    });
+    this.obtenerSalarios();
   }
 
-  // Método para calcular el salario aplicado
-  calcularSalarioAplicado() {
-    if (this.contratosCentroFormacion.length > 0) {
-      // Aquí realizas la lógica para determinar el salario aplicado según las validaciones requeridas
-      // Por ejemplo, podrías establecer una condición para comparar el título y el contrato, y asignar un salario correspondiente
-      const salarioEncontrado = this.titulosUniversitarios.find(salario => salario.titulo === 'Fijo' && salario.contrato === 'Nombramiento');
-
-      if (salarioEncontrado) {
-        this.salarioAplicado = salarioEncontrado.cantidad_sueldo;
-      } else {
-        this.salarioAplicado = 'N/A';
+  obtenerSalarios() {
+    this.salarioService.obtenerSalarios().subscribe(
+      (data) => {
+        this.salarios = data;
+        this.aplicarCondiciones();
+      },
+      (error) => {
+        console.error('Error al obtener los salarios', error);
       }
-    } else {
-      this.salarioAplicado = 'N/A';
+    );
+  }
+
+  aplicarCondiciones() {
+    this.salarioAplicado = '';
+    this.turnoAplicado = '';
+
+    // Recorremos el arreglo de salarios y verificamos si el turno coincide
+    for (const salario of this.salarios) {
+      if (salario.titulo === this.titulosUniversitarios[0].turno && salario.contrato === this.contratosCentroFormacion[0].contrato) {
+        this.salarioAplicado = this.tiempo === 'Medio' ? this.contratosCentroFormacion[0].pagoFinal : this.contratosCentroFormacion[1].pagoFinal;
+        //variable "tiempo" en el arreglo SalarioModel[]
+        //this.salarioAplicado = salario.tiempo === 'Medio' ? this.contratosCentroFormacion[0].pagoFinal : this.contratosCentroFormacion[1].pagoFinal;
+      }this.turnoAplicado = this.titulosUniversitarios[0].turno;
+
+      if (salario.titulo === this.titulosUniversitarios[1].turno && salario.contrato === this.contratosCentroFormacion[2].contrato) {
+        this.salarioAplicado = this.tiempo === 'Medio' ? this.contratosCentroFormacion[2].pagoFinal : this.contratosCentroFormacion[3].pagoFinal;
+        //variable "tiempo" en el arreglo SalarioModel[]yyyy
+        //this.salarioAplicado = salario.tiempo === 'Medio' ? this.contratosCentroFormacion[2].pagoFinal : this.contratosCentroFormacion[3].pagoFinal;
+      }this.turnoAplicado = this.titulosUniversitarios[1].turno;
     }
+
   }
 
 }

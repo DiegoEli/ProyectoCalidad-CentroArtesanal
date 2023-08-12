@@ -1,27 +1,40 @@
-# ProyectoCalidad74
+# Proyecto Calidad - Centro de Formación Artesanal UG 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0.
+Este proyecto consiste en un software de Centro_de_Formación desarrollado con Angular, Express.js y MySql. A continuación se detallan las configuraciones y los comandos necesarios para ejecutar el proyecto.
 
-## Development server
+Antes de ejecutar la API en Express.js, asegúrese de haber ejecutado el script SQL en su gestor de base de datos MySQL Workbench 8.0 CE.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Configuración de MySql (Importante).
+1. Ejecute el siguiente comando SQL para permitir la autenticación adecuada:
 
-## Code scaffolding
+   ```sql
+   ALTER USER 'you_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'you_password';
+   ```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Configuración de Angular (Importante).
+1. Ejecute el siguiente comando para instalar Angular CLI:
 
-## Build
+   ```
+   npm install -g @angular/cli
+   ```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Ejecución del proyecto en Angular
+1. Inicie el servidor de desarrollo de Angular utilizando el siguiente comando:
 
-## Running unit tests
+   ```
+   ng serve --o
+   ```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+El proyecto de Angular se abrirá automáticamente en su navegador predeterminado.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Ejecución de la API en Express.js
+1. Inicie el servidor con nodemon de la API utilizando el siguiente comando:
 
-## Further help
+   ```
+   npm run dev
+   ```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+La API se ejecutará y estará lista para recibir solicitudes.
+
+**Observaciones**: Recuerde que es importante tener una conexión establecida con su base de datos antes de ejecutar la API para evitar errores.

@@ -18,14 +18,16 @@
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Cedula de identidad:</strong></h4>
-                        <p class="card-text"> 094039402</p>
+                        <!-- <p class="card-text"> 094039402</p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.cedula }}</div>
                     </div>
                 </div>
                 <!--NOMBRE NO MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Nombre:</strong></h4>
-                        <p class="card-text"> Carlos Eduardo</p>
+                        <!-- <p class="card-text"> Carlos Eduardo</p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.nombre }}</div>
                     </div>
                 </div>
             </div>
@@ -35,43 +37,52 @@
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Apellidos:</strong></h4>
-                        <p class="card-text"> Macias Quezada</p>
+                        <!-- <p class="card-text"> Macias Quezada</p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.apellido }}</div>
                     </div>
                 </div>
                 <!--EDAD NO MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Edad:</strong></h4>
-                        <p class="card-text"> 23 años</p>
+                        <!-- <p class="card-text"> 23 años</p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.edad }} años</div>
                     </div>
                 </div>
                 <!--DIRECCION MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
-                        <h4 class="card-title">
-                            <strong> Direccion domiciliaria:</strong>
-                        </h4>
-                        <p class="card-text">Urdesa 
+                        <h4 class="card-title"><strong> Direccion domiciliaria:</strong></h4>
+                        <!-- <p class="card-text">Urdesa 
                             <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalDireccion"></i>
-                        </p>
+                        </p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.direccion_domiciliaria }}
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalDireccion"></i>
+                        </div>
                     </div>
                 </div>
                 <!--CORREO MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Correo eletrónico:</strong></h4>
-                        <p class="card-text"> Urdesa 
+                        <!-- <p class="card-text"> Urdesa 
                             <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalCorreo"></i>
-                        </p>
+                        </p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.correo_electronico }}
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalCorreo"></i>
+                        </div>
                     </div>
                 </div>
                 <!--TELEFONO MODIFICABLE-->
                 <div class="card mb-2" style="width: 25rem;">
                     <div class="card-body">
                         <h4 class="card-title"><strong> Telefono:</strong></h4>
-                        <p class="card-text"> 2-348576 
+                        <!-- <p class="card-text"> 2-348576 
                             <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalTelefono"></i>
-                        </p>
+                        </p> -->
+                        <div *ngFor="let profesor of profesores | async">{{ profesor.telefono }}
+                            <i class="bi bi-pencil-square" data-bs-toggle="modal" data-bs-target="#ModalTelefono"></i>
+                        </div>
                     </div>
                 </div>
             </div>

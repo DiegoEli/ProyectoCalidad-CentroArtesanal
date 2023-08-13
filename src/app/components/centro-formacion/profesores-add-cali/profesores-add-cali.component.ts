@@ -96,9 +96,11 @@ export class ProfesoresAddCaliComponent implements OnInit {
   }
 
   obtenerAsignaturas() {
+    //const moduloSeleccionado = this.calificacion.modulo_idmodulo;
     this.asignaturaService.obtenerAsignaturas().subscribe({
       next: (data: AsignaturaModel[]) => {
         this.asignaturas = data;
+        //this.asignaturas = data.filter((asignatura) => asignatura.modulo_idmodulo == moduloSeleccionado);
       },
       error: (error: any) => {
         console.log(error);

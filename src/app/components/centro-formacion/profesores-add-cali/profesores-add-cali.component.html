@@ -18,7 +18,8 @@
                 <div class="col-10">
                     <div class="form-group mb-4">
                         <label for="modulo" class="font-weight-bold h5 mb-2">Seleccionar Módulo:</label>
-                        <select class="form-control" id="modulo" name="modulo" required [(ngModel)]="calificacion.modulo_idmodulo">
+                        <select class="form-control" id="modulo" name="modulo" 
+                        required [(ngModel)]="calificacion.modulo_idmodulo" (ngModelChange)="obtenerAsignaturas()">
                             <option value="">Seleccionar..</option>
                             <option *ngFor="let modulo of modulos" [value]="modulo.idmodulo">{{ modulo.nombre_modulo }}</option>
                         </select>
